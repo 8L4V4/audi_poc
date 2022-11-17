@@ -1,9 +1,9 @@
-import React, {FC} from "react";
-import {Header} from "./Header/Header";
-import {Footer} from "./Footer/Footer";
-import {NextPage} from "next";
+import React, { FC, ReactNode } from "react";
+import { Header } from "./Header/Header";
+import { Footer } from "./Footer/Footer";
+import { NextPage } from "next";
 
-export function MainLayout ({children}): NextPage {
+export function MainLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <Header />
@@ -11,4 +11,4 @@ export function MainLayout ({children}): NextPage {
       <Footer />
     </>
   );
-};
+}
