@@ -1,4 +1,10 @@
-import {useRef, useLayoutEffect, useCallback, useReducer, useEffect} from "react";
+import {
+  useRef,
+  useLayoutEffect,
+  useCallback,
+  useReducer,
+  useEffect,
+} from "react";
 
 const useSafeDispatch = (dispatch: any) => {
   const mounted = useRef(false);
@@ -10,27 +16,41 @@ const useSafeDispatch = (dispatch: any) => {
     };
   }, []);
 
-  return useCallback((...args) => (mounted.current ? dispatch(...args) : void 0), [dispatch]);
+  return useCallback(
+    (...args: any[]) => (mounted.current ? dispatch(...args) : void 0),
+    [dispatch]
+  );
 };
 
-const defaultInitialState = {status: "idle", data: null, error: null};
-type useAsyncInitState = {status: string; data: any; error: any};
+const defaultInitialState = { status: "idle", data: null, error: null };
+type useAsyncInitState = { status: string; data: any; error: any };
 
-export const useAsync = (initialState: useAsyncInitState = defaultInitialState) => {
+export const useAsync = (
+  initialState: useAsyncInitState = defaultInitialState
+) => {
   const initialStateRef = useRef({
     ...defaultInitialState,
-    ...initialState
+    ...initialState,
   });
-  const [{status, data, error}, setState] = useReducer(
-    (s: any, a: any) => ({...s, ...a}),
+  const [{ status, data, error }, setState] = useReducer(
+    (s: any, a: any) => ({ ...s, ...a }),
     initialStateRef.current
   );
 
   const safeSetState = useSafeDispatch(setState);
 
-  const setData = useCallback(data => safeSetState({data, status: "resolved"}), [safeSetState]);
-  const setError = useCallback(error => safeSetState({error, status: "rejected"}), [safeSetState]);
-  const reset = useCallback(() => safeSetState(initialStateRef.current), [safeSetState]);
+  const setData = useCallback(
+    (data: any) => safeSetState({ data, status: "resolved" }),
+    [safeSetState]
+  );
+  const setError = useCallback(
+    (error: any) => safeSetState({ error, status: "rejected" }),
+    [safeSetState]
+  );
+  const reset = useCallback(
+    () => safeSetState(initialStateRef.current),
+    [safeSetState]
+  );
 
   const run = (promise: any) => {
     if (!promise || !promise.then) {
@@ -39,7 +59,7 @@ export const useAsync = (initialState: useAsyncInitState = defaultInitialState) 
       );
     }
 
-    safeSetState({status: "pending"});
+    safeSetState({ status: "pending" });
 
     return promise.then(
       (data: any) => {
@@ -66,6 +86,6 @@ export const useAsync = (initialState: useAsyncInitState = defaultInitialState) 
     status,
     data,
     run,
-    reset
+    reset,
   };
 };
