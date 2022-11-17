@@ -1,0 +1,49 @@
+
+.HeroBanner {
+  height: 70vh;
+  background-position: center;
+  background-size: cover;
+  padding: 2rem 8%;
+  position: relative;
+
+  &:before {
+    content: "";
+    display: block;
+    width: 190%;
+    height: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.8;
+    background-image: linear-gradient(180deg, var(--black), rgba(0, 0, 0, 0));
+    z-index: 0;
+  }
+
+  &-heading,
+  &-paragraph,
+  &-links {
+    position: relative;
+    z-index: 1;
+  }
+
+  &-heading,
+  &-paragraph {
+    color: var(--white);
+  }
+
+  &-heading {
+    font-size: 2.5rem;
+  }
+
+  &-paragraph {
+    font-size: 1.15rem;
+  }
+
+  &-links {
+    padding: 1em 0;
+    margin-top: 1rem;
+    &-item {
+      margin: 0 0.25rem;
+    }
+  }
+}

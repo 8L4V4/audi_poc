@@ -1,0 +1,25 @@
+%btn {
+  padding: 1rem 2.5rem;
+  display: inline-block;
+}
+
+.btn_hollow {
+  @extend %btn;
+  color: var(--white);
+  border: 1px solid var(--white);
+
+  &:hover {
+    color: var(--gray_10);
+    border: 1px solid var(--gray_10);
+  }
+}
+
+.btn_filled {
+  @extend %btn;
+  color: var(--black);
+  background-color: var(--white);
+
+  &:hover {
+    background-color: var(--gray_10);
+  }
+}

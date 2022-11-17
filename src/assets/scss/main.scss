@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body{
+  font-size: 16px;
+  height: 100%;
+  min-height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+::selection {
+  //background-color: red;
+  //color: white;
+  background-color: var(--red_0);
+  color: var(--white);
+}
