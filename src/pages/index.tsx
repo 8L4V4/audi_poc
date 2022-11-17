@@ -1,12 +1,14 @@
 import { NextPage } from "next";
-import {HeroBanner} from "./home/components/HeroBanner/HeroBanner";
-import {CarsSection} from "./home/components/CarsSetion/CarsSection";
+import { HeroBanner } from "components/HeroBanner/HeroBanner";
+import { CarsSection } from "components/CarsSetion/CarsSection";
 
-export default function MainPage(): NextPage {
+const MainPage: NextPage = () => {
   return (
     <>
       <HeroBanner />
       <CarsSection />
     </>
-  )
+  );
 };
+
+export default MainPage;
