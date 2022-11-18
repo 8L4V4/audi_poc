@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useApi } from "hooks/useApi";
-import { MainPageAPI } from "api/mainPage";
+import { MainPageAPI } from "api";
 import { iLinkField } from "../../types/fields";
 
 // interface iTabData {
