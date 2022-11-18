@@ -1,7 +1,6 @@
 import { MainLayout } from "../layouts/MainLayout";
-import { NextPage } from "next";
-import "assets/scss/index.scss";
 import { AppProps } from "next/app";
+import "assets/scss/index.scss";
 
 interface iApp extends AppProps {
   Component: AppProps["Component"];
