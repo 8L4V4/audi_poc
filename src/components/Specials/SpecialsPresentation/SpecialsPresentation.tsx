@@ -1,36 +1,39 @@
 import Link from "next/link";
-import { FC, ReactNode, useState } from "react"
+import { iPresentationData } from "pages/special-offers";
+import { FC, useState } from "react"
 import { SpecialsInfoModal } from "../SpecialsInfoModal/SpecialsInfoModal";
 
-interface iSpecialsPresentation {
-  title: string;
-  text: string | ReactNode;
-  img: string;
+interface iSpecialsPresentation extends Omit<iPresentationData, "image" | "classname"> {
   url: string;
-  btn: {
-    title: string,
-    modalText: string | ReactNode;
-  }
-  className?: string;
+  image: string;
+  className: string;
 };
 
-export const SpecialsPresentation: FC<iSpecialsPresentation> = ({title, text, img, btn, url, className}) => {
+export const SpecialsPresentation: FC<iSpecialsPresentation> = ({
+    title, 
+    content, 
+    image, 
+    btn_title, 
+    modal_content, 
+    url, 
+    className
+}) => {
   const [showModal, setShowModal] = useState(false);
-  
+
   return (
     <>
-      <div className={`SpecialsPresentation ${className || ""}`}>
+      <div className={`SpecialsPresentation ${className}`}>
         <h2 className="SpecialsPresentation-title">{title}</h2>
 
         <div className="SpecialsPresentation-main">
           <div className="SpecialsPresentation-body">
-            <div className="SpecialsPresentation-body-text">{text}</div>
+            <div className="SpecialsPresentation-body-text">{content}</div>
 
             <button 
               className="SpecialsPresentation-body-btn"
               onClick={() => setShowModal(true)}
             >
-              {btn.title}
+              {btn_title}
             </button>
 
             <Link href={url} className="SpecialsPresentation-body-link">
@@ -39,14 +42,14 @@ export const SpecialsPresentation: FC<iSpecialsPresentation> = ({title, text, im
           </div>
 
           <div className="SpecialsPresentation-img-container">
-            <img src={img} alt="presentation_image" className="SpecialsPresentation-img"/>
+            <img src={image} alt="presentation_image" className="SpecialsPresentation-img"/>
           </div>
         </div>
       </div>
 
       {showModal && (
         <SpecialsInfoModal show={showModal} onClose={() => setShowModal(false)}>
-          {btn.modalText}
+          {modal_content}
         </SpecialsInfoModal>
       )}
     </>
