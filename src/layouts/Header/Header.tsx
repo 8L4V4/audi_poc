@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NextPage } from "next";
 import Image from "next/dist/client/image";
 import { Icon } from "../../components/Icon/Icon";
-import { MainPageAPI } from "../../api/mainPage";
+import { MainPageAPI } from "../../api";
 import { useApi } from "../../hooks/useApi";
 
 interface iNavData {

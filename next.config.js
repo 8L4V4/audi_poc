@@ -1,14 +1,19 @@
 /** @type {import('next').NextConfig} */
 
+const { isPropertyAccessChain } = require('typescript');
+
 module.exports = {
   env: {
     apiUrl: "https://cdn.contentstack.io/v3/",
-    api_key: "blt504163b814fa9f8a",
-    access_token: "cs977d3899e2f44382c8f5adeb",
+    api_key: process.env.CONTENTSTACK_API_KEY,
+    access_token: process.env.CONTENTSTACK_DELIVERY_KEY,
     branch: "dev",
-
   },
-  reactStrictMode: true
+  reactStrictMode: true,
+  images: {
+    domains: ["images.contentstack.io"],
+    dangerouslyAllowSVG: true
+  }
 };
 
 

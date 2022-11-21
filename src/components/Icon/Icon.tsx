@@ -11,6 +11,7 @@ import { TwitterIcon } from "./TwitterIcon";
 import { YoutubeIcon } from "./YoutubeIcon";
 import { FacebookIcon } from "./FacebookIcon";
 import { NextPage } from "next";
+import { Cross } from "./Cross";
 
 type tIconName =
   | "arrow-down"
@@ -23,7 +24,8 @@ type tIconName =
   | "logo"
   | "profile"
   | "twitter"
-  | "youtube";
+  | "youtube"
+  | "cross";
 
 const map: { [k: string]: NextPage } = {
   "arrow-down": ArrowDownIcon,
@@ -37,6 +39,7 @@ const map: { [k: string]: NextPage } = {
   profile: ProfileIcon,
   twitter: TwitterIcon,
   youtube: YoutubeIcon,
+  cross: Cross
 };
 
 interface iIconProps {

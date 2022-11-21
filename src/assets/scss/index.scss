@@ -1,6 +1,15 @@
 @import "colors", "main";
+@import "./fonts.scss";
+@import "../../components/Loader/Loader.scss";
 @import "../../layouts/Header/Header";
 @import "../../layouts/Footer/Footer";
 @import "../../components/Icon/Icon";
+@import "src/components/Portal/Portal.scss";
 @import "src/components/HeroBanner/HeroBanner";
 @import "./shared";
+@import "../../components/Specials/Specials.scss";
+@import "../../components/Specials/SpecialsBanner/SpecialsBanner.scss";
+@import "../../components/Specials/SpecialsPresentation/SpecialsPresentation.scss";
+@import "../../components/Specials/SpecialsPrograms/SpecialsPrograms.scss";
+@import "../../components/Specials/SpecialsProgramsItem/SpecialsProgramsItem.scss";
+@import "../../components/Specials/SpecialsInfoModal/SpecialsInfoModal.scss";

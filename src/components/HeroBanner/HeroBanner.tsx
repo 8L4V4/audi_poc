@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
 import { useApi } from "hooks/useApi";
-import { MainPageAPI } from "../../api/mainPage";
+import { MainPageAPI } from "../../api";
 import { iLinkField } from "../../types/fields";
 import Link from "next/link";
 
