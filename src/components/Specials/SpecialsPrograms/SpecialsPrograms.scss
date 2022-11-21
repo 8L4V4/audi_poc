@@ -1,0 +1,19 @@
+.SpecialsPrograms {
+  max-width: 1460px;
+  margin: 2.5rem auto 4.5rem auto;
+
+  &-header {
+    &-title {
+      font-size: var(--fSize44);
+      font-family: var(--Audi500);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    &-subtitle {
+      font-size: var(--fSize16);
+      font-family: var(--AudiVF);
+      margin-bottom: 6.5rem;
+    }
+  }
+}

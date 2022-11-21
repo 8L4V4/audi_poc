@@ -1,0 +1,63 @@
+.SpecialsProgramsItem {
+  width: 100%;
+  text-align: start;
+
+  &:first-of-type {
+    .SpecialsProgramsItem-btn {
+      border-top: 1px solid var(--gray_10);
+    }
+  }
+
+  &-btn {
+    width: 100%;
+    font-size: var(--fSize16);
+    font-family: var(--Audi600);
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--gray_10);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .Icon {
+      transition: transform 0.5s ease;
+    }
+
+    &.active {
+      .Icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &-content {
+    opacity: 0;
+    transition: opacity 0.75s ease;
+    border-bottom: 1px solid var(--gray_10);
+    padding: 0.35rem 0;
+    
+    &.active {
+      opacity: 1;
+    }
+
+    &-text {
+      font-size: var(--fSize16);
+      font-family: var(--AudiVF);
+      margin-bottom: 1rem;
+      line-height: 1.5rem;
+    }
+
+    &-link {
+      font-size: var(--fSize16);
+      font-family: var(--AudiVF);
+      color: var(--black);
+      display: flex;
+      align-items: center;
+
+      .Icon {
+        transform: translateY(3px);
+        margin-left: 0.35rem;
+      }
+    }
+  }
+}
