@@ -1,0 +1,95 @@
+.SpecialsPresentation {
+  max-width: 1152px;
+  margin: 0 auto;
+  margin-bottom: 8rem;
+
+  &.swap {
+    .SpecialsPresentation {
+      &-img-container {
+        order: 2;
+        margin-left: 0;
+        margin-right: 3rem;
+      }
+
+      &-body {
+        order: 3;
+      }
+    }
+  }
+
+  &.red {
+    .SpecialsPresentation {
+      &-img {
+        width: 456px;
+        height: 256px;
+
+        &-container{
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  &-title {
+    font-size: var(--fSize44);
+    font-family: var(--Audi500);
+    order: 1;
+    margin-bottom: 2rem;
+  }
+
+  &-main {
+    display: flex;
+    align-items: center;
+    row-gap: 4rem;
+  }
+
+  &-body {
+    order: 2;
+    max-width: 500px;
+
+    &-text {
+      font-size: var(--fSize16);
+      letter-spacing: 0.25px;
+      line-height: 1.5rem;
+      font-family: var(--AudiVF);
+      margin-bottom: 1rem;
+    }
+
+    &-btn {
+      display: block;
+      font-size: var(--fSize14);
+      font-family: var(--AudiVF);
+      text-decoration: underline;
+      margin-bottom: 1.5rem;
+      cursor: pointer;
+    }
+
+    &-link {
+      display: block;
+      padding: 1rem 0;
+      text-align: center;
+      border: 1px solid var(--black);
+      max-width: 240px;
+      font-size: var(--fSize16);
+      font-family: var(--AudiVF);
+      color: var(--black);
+
+      &:hover {
+        color: var(--gray_0);
+      }
+    }
+  }
+
+  &-img {
+    background-size: cover;
+    width: 599px;
+    height: 337px;
+    margin: 0 auto 0 0;
+    
+    &-container {
+      order: 3;
+      margin-top: 1.5rem;
+      margin-left: 3rem;
+    }
+  }
+}

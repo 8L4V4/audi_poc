@@ -35,3 +35,9 @@ export const MainPageAPI = {
     url: `/content_types/${uids.footer.content_type_uid}/entries/${uids.footer.entry_uid}`,
   }),
 };
+
+export const SpecialsPageAPI = {
+  getPageData: (): AxiosRequestConfig => ({
+    url: "content_types/specialsofferspage/entries/blt2ffda8f2f346f15c?environment=dev_env&include_fallback=true",
+  }),
+}
