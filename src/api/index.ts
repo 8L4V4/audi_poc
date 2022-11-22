@@ -38,3 +38,15 @@ export const MainPageAPI = {
     url: `/content_types/${uids.electic_cars.content_type_uid}/entries/${uids.electic_cars.entry_uid}?environment=dev_env`,
   }),
 };
+
+export const SpecialsPageAPI = {
+  getHeaderData: (): AxiosRequestConfig => ({
+    url: "content_types/specialsbanner/entries/bltb04aa584ebc391b3?environment=dev_env&include_fallback=true",
+  }),
+  getDropDownData: (): AxiosRequestConfig => ({
+    url: "content_types/specialsdropdown/entries/blt588e2fb1dddd1c26?environment=dev_env&include_fallback=true",
+  }),
+  getPresentationData: (): AxiosRequestConfig => ({
+    url: "content_types/specialspresentation/entries/bltc3f1f6e66c660120?environment=dev_env&include_fallback=true",
+  }),
+}

@@ -57,7 +57,7 @@ export function Footer() {
           {entry?.categories?.map((category) => (
             <li className="Footer-category" key={category?.title}>
               <h3 className="Footer-category-title">
-                <Link href={category?.url}>{category?.title}</Link>
+                <Link href={category?.url || ""}>{category?.title}</Link>
               </h3>
               {category?.links?.map(({ link }) => (
                 <Link

@@ -3,3 +3,63 @@
 :root {
   --montserat: "Montserrat", sans-serif;
 }
+
+@font-face {
+  font-family: "AudiNormal";
+  src: url("../fonts/AudiType-Normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AudiExtended";
+  font-weight: 500;
+  src: url("../fonts/AudiType-ExtendedNormal.woff2") format("woff2");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AudiBold";
+  src: url("../fonts/AudiType-Bold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AudiVF";
+  src: url("../fonts/AudiTypeVF.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --fSize72: 4.5em;
+  --fSize64: 4em;
+  --fSize56: 3.5em;
+  --fSize48: 3em;
+  --fSize44: 2.75em;
+  --fSize40: 2.5em;
+  --fSize38: 2.375em;
+  --fSize36: 2.25em;
+  --fSize32: 2em;
+  --fSize30: 1.875em;
+  --fSize28: 1.75em;
+  --fSize26: 1.625em;
+  --fSize24: 1.5em;
+  --fSize22: 1.375em;
+  --fSize20: 1.25em;
+  --fSize18: 1.125em;
+  --fSize16: 1em;
+  --fSize14: 0.875em;
+  --fSize12: 0.75em;
+  --fSize10: 0.625em;
+
+  --Audi400: "AudiNormal", sans-serif;
+  --Audi500: "AudiExtended", sans-serif;
+  --Audi600: "AudiBold", sans-serif;
+  --AudiVF: "AudiVF", sans-serif;
+}
