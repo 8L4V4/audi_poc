@@ -9,7 +9,7 @@ import { useEffect } from "react";
 interface iFooterCategory {
   title: string;
   url: string;
-  links: { link: { path: string; name: string } }[];
+  links: { link: { href: string; title: string } }[];
 }
 
 interface iFooterEntry {
@@ -35,13 +35,6 @@ export function Footer() {
     call(MainPageAPI.getFooterData());
   }, []);
 
-  if (isLoading)
-    return (
-      <footer className="Footer">
-        <Loader />
-      </footer>
-    );
-
   if (isError)
     return (
       <div className="Footer-error">
@@ -52,6 +45,7 @@ export function Footer() {
   return (
     <footer className="Footer">
       <div className="Footer-content">
+        {isLoading && <Loader />}
         <button
           className="Footer-top-btn"
           onClick={() => window?.scrollTo({ top: 0, behavior: "smooth" })}
@@ -67,11 +61,11 @@ export function Footer() {
               </h3>
               {category?.links?.map(({ link }) => (
                 <Link
-                  href={link?.path || ""}
+                  href={link?.href}
                   className="Footer-category-link"
-                  key={link?.name}
+                  key={link?.title}
                 >
-                  {link?.name}
+                  {link?.title}
                 </Link>
               ))}
             </li>
