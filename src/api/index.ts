@@ -34,4 +34,7 @@ export const MainPageAPI = {
   getFooterData: (): AxiosRequestConfig => ({
     url: `/content_types/${uids.footer.content_type_uid}/entries/${uids.footer.entry_uid}`,
   }),
+  getElectricCarsData: (): AxiosRequestConfig => ({
+    url: `/content_types/${uids.electic_cars.content_type_uid}/entries/${uids.electic_cars.entry_uid}?environment=dev_env`,
+  }),
 };

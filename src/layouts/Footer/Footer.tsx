@@ -35,13 +35,6 @@ export function Footer() {
     call(MainPageAPI.getFooterData());
   }, []);
 
-  if (isLoading)
-    return (
-      <footer className="Footer">
-        <Loader />
-      </footer>
-    );
-
   if (isError)
     return (
       <div className="Footer-error">
@@ -49,11 +42,10 @@ export function Footer() {
       </div>
     );
 
-  console.log(data);
-
   return (
     <footer className="Footer">
       <div className="Footer-content">
+        {isLoading && <Loader />}
         <button
           className="Footer-top-btn"
           onClick={() => window?.scrollTo({ top: 0, behavior: "smooth" })}

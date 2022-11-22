@@ -1,17 +1,8 @@
 import { NextPage } from "next";
+import { Electric } from "views/Electric/Electric";
 
-const Electric: NextPage = () => {
-  return (
-    <div className="Electric">
-      <div className="Electric-hero-banner">
-        <h1 className="Electric-title">Electric Models</h1>
-        <p className="Electric-description">A new generation of Audi.</p>
-      </div>
-      <ul className="Electric-cars">
-        <li>Overview</li>
-      </ul>
-    </div>
-  );
+const ElectricPage: NextPage = () => {
+  return <Electric />;
 };
 
-export default Electric;
+export default ElectricPage;

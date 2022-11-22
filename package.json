@@ -6,6 +6,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@contentstack/json-rte-serializer": "^2.0.0",
     "@types/axios": "^0.14.0",
     "@types/node": "^18.11.7",
     "@types/react": "^18.0.24",
@@ -15,5 +16,8 @@
     "react-dom": "^18.2.0",
     "sass": "^1.55.0",
     "typescript": "^4.8.4"
+  },
+  "devDependencies": {
+    "@types/react-dom": "^18.0.9"
   }
 }

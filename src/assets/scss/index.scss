@@ -1,7 +1,11 @@
+@import "./fonts.scss";
 @import "colors", "main";
-@import "../../components/Loader/Loader.scss";
-@import "../../layouts/Header/Header";
-@import "../../layouts/Footer/Footer";
-@import "../../components/Icon/Icon";
-@import "src/components/HeroBanner/HeroBanner";
 @import "./shared";
+@import "components/ModalPopup/ModalPopup.scss";
+@import "src/components/Loader/Loader.scss";
+@import "src/layouts/Header/Header";
+@import "src/layouts/Footer/Footer";
+@import "src/components/Icon/Icon";
+@import "src/components/HeroBanner/HeroBanner";
+@import "src/views/Electric/Electric.scss";
+@import "src/views/Electric/components/ModelsList/ModelsList.scss";

@@ -1,6 +1,7 @@
 %btn {
   padding: 1rem 2.5rem;
   display: inline-block;
+  line-height: 1;
 }
 
 .btn_hollow {
@@ -18,12 +19,15 @@
   @extend %btn;
   color: var(--black);
   background-color: var(--white);
+  border: 1px solid var(--white);
 
   &:hover {
     background-color: var(--gray_10);
+    border: 1px solid var(--gray_10);
   }
 }
 
 :root {
   --container-max-width: 1480px;
+  --max-width-tablet: 1280px;
 }
