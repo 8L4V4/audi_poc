@@ -22,6 +22,7 @@ export interface iCar {
   alt_image: { url: string };
   description: string;
   info_list: iInfoItem[];
+  mspr: string;
 }
 
 interface iInfoItem {
@@ -44,6 +45,7 @@ interface iElectricEntry {
 export const Electric: FC = () => {
   const { call, data, isError, isLoading } = useHttp();
   const entry = data?.data?.entry as iElectricEntry;
+  console.log(entry);
 
   useEffect(() => {
     call(MainPageAPI.getElectricCarsData());

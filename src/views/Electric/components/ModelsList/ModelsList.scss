@@ -58,7 +58,7 @@
   }
   &-info-container {
     padding-top: 3rem;
-    padding-bottom: 6rem;
+    padding-bottom: 8rem;
     max-width: var(--max-width-tablet);
     margin: 0 auto;
   }
@@ -99,7 +99,7 @@
     margin-bottom: 0.5rem;
   }
   &-popup {
-    padding: 3rem;
+    padding: 4rem 2rem 2rem 2rem;
     min-width: 80vw;
     top: 0;
     transform: translate(-50%, 0);
@@ -111,5 +111,18 @@
   }
   &-popup-description {
     padding-bottom: 6rem;
+  }
+  &-info-explore {
+    display: block;
+    width: max-content;
+    margin: 5rem auto 0 auto;
+    color: var(--black);
+    border: 1px solid var(--black);
+
+    &:hover {
+      opacity: 0.7;
+      color: var(--black);
+      border: 1px solid var(--black);
+    }
   }
 }

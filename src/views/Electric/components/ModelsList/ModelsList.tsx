@@ -47,7 +47,14 @@ export const ModelsList: FC<{ data: iCar[] }> = ({ data }) => {
             <Link href="/" className="btn_filled ModelsList-explore">
               Explore the {car?.name}
             </Link>
-            <button className="btn_hollow ModelsList-MSPR">
+            <button
+              className="btn_hollow ModelsList-MSPR"
+              onClick={() =>
+                setInfo({
+                  description: car?.mspr,
+                })
+              }
+            >
               *View MSRP info
             </button>
           </div>
@@ -84,6 +91,9 @@ export const ModelsList: FC<{ data: iCar[] }> = ({ data }) => {
                 </li>
               ))}
             </ul>
+            <Link href="/" className="btn_hollow ModelsList-info-explore">
+              Explore the {car?.name}
+            </Link>
           </div>
         </li>
       ))}
