@@ -46,4 +46,10 @@ export const SpecialsPageAPI = {
   getPresentationData: (): AxiosRequestConfig => ({
     url: "content_types/specialspresentation/entries/bltc3f1f6e66c660120?environment=dev_env&include_fallback=true",
   }),
-}
+};
+
+export const ModelsPageAPI = {
+  getCarsList: (): AxiosRequestConfig => ({
+    url: "content_types/all_models/entries/blt06b81d744b828f32?environment=dev_env&include_fallback=true&include[]=category.headlineimg&include[]=category.list.img&include[]=category.headline",
+  }),
+};

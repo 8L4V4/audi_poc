@@ -1,0 +1,89 @@
+.ModelsFilter {
+  background-color: var(--black);
+  
+  .ModelsFilterBar {
+    max-width: 1440px;
+    margin: 0 auto;
+    font-size: var(--fSize24);
+  }
+
+  &-main {
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    padding: 2.5rem 2.5rem 13.5rem 2.5rem;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 80vw;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--black_10);
+      box-shadow: 20vw 0 0 0 var(--black_10), -20vw 0 0 0 var(--black_10);
+      z-index: -1;
+    }
+    
+    &-section {
+      margin-bottom: 4rem;
+
+      &.price {
+        width: 100%;
+        max-width: 640px;
+      }
+
+      &-title {
+        font-size: var(--fSize24);
+        color: var(--gray_30);
+        margin-bottom: 1.5rem;
+        font-family: var(--Audi400);
+        font-weight: 400;
+      }
+
+      &-list {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      &-price {
+        font-family: var(--Audi400);
+        font-size: var(--fSize20);
+        color: var(--white);
+        text-align: end;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  &-results {
+    background-color: var(--black);
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 1.75rem 0;
+    text-align: center;
+
+    &-btn {
+      max-width: 600px;
+      width: 100%;
+      padding: 1rem 0;
+      text-align: center;
+      border: 1px solid var(--white);
+      cursor: pointer;
+
+      &:hover {
+
+      }
+    }
+
+    &-text {
+      color: var(--white);
+      font-family: var(--Audi400);
+      font-size: var(--fSize20);
+    }
+  }
+}

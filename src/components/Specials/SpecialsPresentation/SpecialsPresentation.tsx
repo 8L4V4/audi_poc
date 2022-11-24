@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { iPresentationData } from "pages/special-offers";
 import { FC, useState } from "react"
-import { SpecialsInfoModal } from "../SpecialsInfoModal/SpecialsInfoModal";
+import { Modal } from "../../Modal/Modal";
 
 interface iSpecialsPresentation extends Omit<iPresentationData, "image" | "classname"> {
   url: string;
@@ -47,11 +47,9 @@ export const SpecialsPresentation: FC<iSpecialsPresentation> = ({
         </div>
       </div>
 
-      {showModal && (
-        <SpecialsInfoModal show={showModal} onClose={() => setShowModal(false)}>
+      {<Modal show={showModal} onClose={() => setShowModal(false)}>
           {modal_content}
-        </SpecialsInfoModal>
-      )}
+      </Modal>}
     </>
   )
 }

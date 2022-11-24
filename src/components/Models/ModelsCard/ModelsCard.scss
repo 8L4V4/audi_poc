@@ -1,0 +1,51 @@
+.ModelsCard {
+  max-width: 350px;
+  background-color: var(--white);
+
+
+  &-header {
+    min-height: 159px;
+    padding: 1.125rem;
+    padding-bottom: 0;
+  }
+
+  &-title {
+    font-family: var(--Audi600);
+    margin-bottom: 0.5rem;
+
+    &-bold {
+      font-size: var(--fSize22);
+      margin-right: 0.75rem;
+    }
+
+    &-text {
+      font-size: var(--fSize18);
+    }
+  }
+
+  &-price {
+    font-family: var(--AudiVF);
+    font-size: var(--fSize14);
+  }
+
+  &-img {
+    max-width: 346px;
+    height: 149px;
+  }
+
+  &-explore {
+    width: 100%;
+    padding: 1rem 2rem;
+    border: 1px solid var(--black);
+    font-family: var(--AudiVF);
+    font-size: var(--fSize18);
+    color: var(--black);
+    display: block;
+    text-align: center;
+    
+    &-container {
+      height: 92px;
+      padding: 1.125rem;
+    }
+  }
+}

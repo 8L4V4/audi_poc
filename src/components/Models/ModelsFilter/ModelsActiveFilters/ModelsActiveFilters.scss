@@ -1,0 +1,32 @@
+.ModelsActiveFilters  {
+  gap: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 1.25rem;
+  
+  &-btn {
+    padding: 1rem;
+    font-size: var(--fSize16);
+    font-family: var(--AudiVF);
+    font-weight: 500;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--gray_10);
+    }
+
+    .Icon {
+      width: 16px;
+      height: 16px;
+      margin-left: 1.25rem;
+    }
+
+    &.gray {
+      background-color: var(--gray_10);
+    }
+  }
+}
