@@ -1,7 +1,8 @@
 import { NextPage } from "next";
+import { Electric } from "views/Electric/Electric";
 
-const Electric: NextPage = () => {
-  return <></>;
+const ElectricPage: NextPage = () => {
+  return <Electric />;
 };
 
-export default Electric;
+export default ElectricPage;
