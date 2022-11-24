@@ -131,13 +131,16 @@ export const Electric: FC = () => {
         <ModelsList data={hybridCars} setCarInfo={setInfo} />
       </section>
       <section className="Electric-footer">
-        <Image
-          src={entry?.footer_background?.url}
-          alt="audi gt image"
-          fill
-          objectFit="cover"
-          className="Electric-footer-image"
-        />
+        {entry?.footer_background?.url && (
+          <Image
+            src={entry.footer_background.url}
+            alt="audi gt image"
+            fill
+            objectFit="cover"
+            className="Electric-footer-image"
+            loading="lazy"
+          />
+        )}
         <div className="Electric-footer-content">
           <h3 className="Electric-footer-title">Explore electric driving.</h3>
           <p className="Electric-footer-text">

@@ -27,6 +27,7 @@ export const ModelsList: FC<iModelsList> = ({ data, setCarInfo }) => {
               fill
               objectFit="cover"
               className="ModelsList-img"
+              loading="lazy"
             />
           </div>
           <div className="ModelsList-text-container">
