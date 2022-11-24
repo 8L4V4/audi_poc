@@ -1,35 +1,25 @@
-import { FC, useState } from "react";
+import { Dispatch, FC, SetStateAction } from "react";
 import Image from "next/image";
-import { iCar } from "views/Electric/Electric";
+import { iCar, iCarInfo } from "views/Electric/interfaces";
 import Link from "next/link";
-import { ModalPopUp } from "components/ModalPopup/ModalPopup";
 
-export const ModelsList: FC<{ data: iCar[] }> = ({ data }) => {
-  const [info, setInfo] = useState<{
-    description_title?: string;
-    description: string;
-  }>();
+interface iModelsList {
+  data: iCar[];
+  setCarInfo: Dispatch<SetStateAction<iCarInfo | undefined>>;
+}
+
+export const ModelsList: FC<iModelsList> = ({ data, setCarInfo }) => {
+  const openMsprDetails = (car: iCar) => {
+    setCarInfo({
+      description: car?.mspr,
+      description_title: "MSRP Disclaimer",
+    });
+  };
+
   return (
     <ul className="ModelsList">
-      {!!info && (
-        <ModalPopUp
-          show={!!info}
-          onClose={() => setInfo(undefined)}
-          showCloseBtn
-          contentClassName="ModelsList-popup"
-        >
-          <div className="ModelsList-popup-content">
-            {info?.description_title && (
-              <h3 className="ModelsList-popup-title">
-                {info.description_title}
-              </h3>
-            )}
-            <p className="ModelsList-popup-description">{info.description}</p>
-          </div>
-        </ModalPopUp>
-      )}
       {data?.map((car) => (
-        <li className="ModelsList-model" key={car?.name}>
+        <li className="ModelsList-model" id={car?.slug} key={car?.name}>
           <div className="ModelsList-img-wrap">
             <Image
               src={car?.image?.url}
@@ -44,21 +34,43 @@ export const ModelsList: FC<{ data: iCar[] }> = ({ data }) => {
               {car?.year} {car?.name}
             </h2>
             <p className="ModelsList-price">Starting at ${car?.price}.*</p>
-            <Link href="/" className="btn_filled ModelsList-explore">
-              Explore the {car?.name}
-            </Link>
-            <button
-              className="btn_hollow ModelsList-MSPR"
-              onClick={() =>
-                setInfo({
-                  description: car?.mspr,
-                })
-              }
-            >
-              *View MSRP info
-            </button>
+            {car?.type === "GT" && (
+              <button
+                className="ModelsList-gt-mspr"
+                onClick={() => openMsprDetails(car)}
+              >
+                View MSRP info
+              </button>
+            )}
+
+            {car?.type === "GT" && (
+              <>
+                <Link href="/" className="ModelsList-gt btn_filled">
+                  Explore the e-tron GT
+                </Link>
+                <Link href="/" className="ModelsList-gt-etron btn_hollow">
+                  Explore the e-tron GT
+                </Link>
+              </>
+            )}
+
+            {car?.type !== "GT" && (
+              <>
+                <Link href="/" className="btn_filled ModelsList-explore">
+                  Explore the {car?.name}
+                </Link>
+                <button
+                  className="btn_hollow ModelsList-MSPR"
+                  onClick={() => openMsprDetails(car)}
+                >
+                  *View MSRP info
+                </button>
+              </>
+            )}
           </div>
-          <p className="ModelsList-description">{car?.image_description}</p>
+          {car?.image_description && (
+            <p className="ModelsList-description">{car.image_description}</p>
+          )}
           <div className="ModelsList-info-container">
             <p className="ModelsList-info-description">{car?.description}</p>
             <ul className="ModelsList-info-list">
@@ -80,7 +92,7 @@ export const ModelsList: FC<{ data: iCar[] }> = ({ data }) => {
                   <button
                     className="ModelsList-info-view"
                     onClick={() =>
-                      setInfo({
+                      setCarInfo({
                         description: item?.description,
                         description_title: item?.description_title,
                       })
@@ -91,9 +103,21 @@ export const ModelsList: FC<{ data: iCar[] }> = ({ data }) => {
                 </li>
               ))}
             </ul>
-            <Link href="/" className="btn_hollow ModelsList-info-explore">
-              Explore the {car?.name}
-            </Link>
+            {car?.type !== "GT" && (
+              <Link href="/" className="btn_hollow ModelsList-info-explore">
+                Explore the {car?.name}
+              </Link>
+            )}
+            {car?.type === "GT" && (
+              <div className="ModelsList-info-btns">
+                <Link href="/" className="ModelsList-info-filled">
+                  Explore the Audi e‑tron® GT
+                </Link>
+                <Link href="/" className="ModelsList-info-hollow">
+                  Explore the Audi RS e‑tron® GT
+                </Link>
+              </div>
+            )}
           </div>
         </li>
       ))}
