@@ -1,4 +1,4 @@
-.SpecialsInfoModal {
+.Modal {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -24,6 +24,17 @@
     font-family: var(--Audi400);
     position: relative;
     margin-top: 2rem;
+
+    &.fullScreen {
+      max-width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+
+      .Modal-close {
+        display: none;
+      }
+    }
   }
 
   &-close {

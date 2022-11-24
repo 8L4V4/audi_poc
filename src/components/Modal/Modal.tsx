@@ -2,14 +2,15 @@ import { FC, MutableRefObject, ReactNode, useEffect, useRef } from "react";
 import { Portal } from "components/Portal/Portal";
 import { Icon } from "components/Icon/Icon";
 
-interface iSpecialsInfoModal {
+interface iModal {
   show: boolean;
   onClose: () => void;
+  fullScreen?: boolean;
   children?: ReactNode;
   className?: string;
 };
 
-export const SpecialsInfoModal: FC<iSpecialsInfoModal> = ({show, onClose, children, className}) => {
+export const Modal: FC<iModal> = ({show, onClose, children, className, fullScreen = false}) => {
   const ref: MutableRefObject<HTMLDivElement | null> = useRef(null);
 
   useEffect(() => {
@@ -27,14 +28,14 @@ export const SpecialsInfoModal: FC<iSpecialsInfoModal> = ({show, onClose, childr
   return (
     <Portal>
       <div
-        className={`SpecialsInfoModal ${className || ""}`}
+        className={`Modal ${className || ""}`}
         role="dialog"
         ref={ref}
         onClick={() => onClose()}
       />
 
-      <div className="SpecialsInfoModal-content">
-        <button className="SpecialsInfoModal-close" onClick={() => onClose()}>
+      <div className={`Modal-content ${fullScreen ? "fullScreen" : ""}`}>
+        <button className="Modal-close" onClick={() => onClose()}>
           <Icon name="cross" />
         </button>
 
