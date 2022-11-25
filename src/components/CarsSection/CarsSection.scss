@@ -36,22 +36,30 @@
 		&-slides {
 			flex: 1 1 80%;
 			position: relative;
-			overflow-x: auto;
+			overflow: hidden;
+
 			&-container {
-				position: absolute;
-				top: 0;
-				left: 0;
-				
+				// position: absolute;
+				// top: 0;
+				// left: 0;
+				overflow-x: auto;
+				white-space: nowrap;
+
 			}
 		}
 
 		&-slide {
-			&-img {
+			display: inline-block;
 
+			&-img {
+				&.alt {
+					display: none;
+				}
 			}
 
 			&-title {
-
+				text-align: cen;
+				display: block;
 			}
 		}
 

@@ -76,29 +76,29 @@ export const CarsSection = () => {
         
           <button className="CarsSection-carousel-control-btn prev"> left </button>
           <div className="CarsSection-carousel-slides">
-            <div className="CarSection-carousel-slides-container">
+            <div className="CarsSection-carousel-slides-container">
               {activeTab && activeTab?.slides.sort(orderItems).map((slide_data) => {
                 const [data] = slide_data.slide_data;
                 return (
                   <button
-                    className={`CarSection-carousel-slide ${slide_data === activeSlide ? "active" : ""}`}
+                    className={`CarsSection-carousel-slide ${slide_data === activeSlide ? "active" : ""}`}
                     onClick={() => switchActiveSlide(slide_data !== activeSlide ? slide_data : undefined)}
                   >
                     <Image
-                      className="CarSection-carousel-slide-img"
+                      className="CarsSection-carousel-slide-img"
                       src={data?.img_sm?.url}
                       alt={data?.title}
-                      width={128}
-                      height={55}
+                      width={291}
+                      height={125}
                     />
                     <Image
-                      className="CarSection-carousel-slide-img alt"
+                      className="CarsSection-carousel-slide-img alt"
                       src={data?.alt_img?.url}
                       alt={data?.title}
-                      width={128}
-                      height={55}
+                      width={291}
+                      height={125}
                     />
-                    <span className="CarSection-carousel-slide-title"> {data?.title} </span>
+                    <span className="CarsSection-carousel-slide-title"> {data?.title} </span>
                   </button>
                 );
               })
