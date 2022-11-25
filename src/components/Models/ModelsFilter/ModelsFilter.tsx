@@ -100,7 +100,7 @@ export const ModelsFilter: FC<iModelsFilter> = ({
 
         <div className="ModelsFilter-results">
           <button className="ModelsFilter-results-btn" onClick={onClose}>
-            <span className="ModelsFilter-results-text">46 Results Displayed</span>
+            <span className="ModelsFilter-results-btn-text">46 Results Displayed</span>
           </button>
         </div>
     </div>
