@@ -88,21 +88,17 @@
     font-size: 1.25rem;
   }
   &-gt-container {
-    position: relative;
+    position: sticky;
     min-height: 850px;
-    transition: 0.3s ease;
     height: 100vh;
-    &.in-view {
-      position: sticky;
-      top: 0;
-      left: 0;
-
-      z-index: 5;
-    }
+    top: 0;
+    left: 0;
+    z-index: 5;
   }
+
   &-gt {
     z-index: 2;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.5s ease;
   }
   &-gt-additional {
     z-index: 1;

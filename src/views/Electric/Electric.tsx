@@ -14,7 +14,6 @@ import Link from "next/link";
 import { ModelsList } from "./components/ModelsList/ModelsList";
 import { iCarInfo, iElectricEntry } from "./interfaces";
 import { ArrowRightIcon } from "components/Icon/ArrowRightIcon";
-import { useIntersectionObserver } from "hooks/useIntersectionObserver";
 
 export const Electric: FC = () => {
   const { call, data, isError, isLoading } = useHttp();
@@ -25,27 +24,42 @@ export const Electric: FC = () => {
   const [info, setInfo] = useState<iCarInfo>();
   const [opacity, setOpacity] = useState(1);
 
-  const isIntersecting = useIntersectionObserver(gtContainer, {
-    rootMargin: "-50%",
-  });
+  useEffect(() => {
+    window.addEventListener("scroll", (e) => {
+      if (!gtContainer?.current) return e;
+      const containerPosition = gtContainer.current.getBoundingClientRect().top;
+
+      changeImageOpacity(containerPosition <= 0 ? "bottom" : "top");
+    });
+
+    return () => window?.removeEventListener("scroll", () => null);
+  }, []);
 
   useEffect(() => {
-    opacity <= 0 && gtContainer?.current?.classList?.remove("in-view");
+    if (!gtContainer.current) return;
+    gtContainer.current.style.position = `${
+      opacity > 0 ? "sticky" : "relative"
+    }`;
   }, [opacity]);
-
-  useEffect(() => {
-    isIntersecting && gtContainer?.current?.classList?.add("in-view");
-  }, [isIntersecting]);
 
   const scrollToELement = (id: string) => {
     const el = document?.getElementById(id);
     el && el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  function changeImageOpacity(e: React.WheelEvent) {
-    e.deltaY < 0
-      ? setOpacity((pv) => pv + 0.25)
-      : setOpacity((pv) => pv - 0.25);
+  function manageOpacityLevel(newOpacity: number) {
+    const min = 0;
+    const max = 1;
+    if (newOpacity <= min) return min;
+    if (newOpacity >= max) return max;
+
+    return newOpacity;
+  }
+
+  function changeImageOpacity(direction: "top" | "bottom") {
+    direction === "top"
+      ? setOpacity((pv) => manageOpacityLevel(pv + 0.1))
+      : setOpacity((pv) => manageOpacityLevel(pv - 0.1));
   }
 
   useEffect(() => {
@@ -122,13 +136,7 @@ export const Electric: FC = () => {
         </p>
       </div>
       <ModelsList data={cars} setCarInfo={setInfo} />
-      <div
-        className="Electric-gt-container"
-        ref={gtContainer}
-        onWheel={(e) => {
-          e.currentTarget.classList.add("in-view");
-        }}
-      >
+      <div className="Electric-gt-container" ref={gtContainer}>
         {entry?.gt_background && (
           <Image
             src={entry.gt_background?.url}
@@ -137,7 +145,6 @@ export const Electric: FC = () => {
             objectFit="cover"
             className="Electric-gt"
             style={{ opacity }}
-            onWheel={changeImageOpacity}
           />
         )}
         {entry?.gt_additional_background && (
