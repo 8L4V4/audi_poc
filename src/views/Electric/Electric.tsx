@@ -1,4 +1,10 @@
-import { FC, MutableRefObject, useEffect, useRef, useState } from "react";
+import React, {
+  FC,
+  MutableRefObject,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { MainPageAPI } from "api";
 import { Loader } from "components/Loader/Loader";
 import { ModalPopUp } from "components/ModalPopup/ModalPopup";
@@ -32,11 +38,10 @@ export const Electric: FC = () => {
     el && el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  function changeImageOpacity() {
-    const funcCopy = changeImageOpacity as any;
-    funcCopy.opacity = opacity + 0.05;
-
-    console.log(funcCopy.opacity);
+  function changeImageOpacity(e: React.WheelEvent) {
+    e.deltaY < 0
+      ? setOpacity((pv) => pv + 0.05)
+      : setOpacity((pv) => pv - 0.05);
   }
 
   useEffect(() => {
