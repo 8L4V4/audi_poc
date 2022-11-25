@@ -8,6 +8,7 @@ import Link from "next/link";
 import { ModelsList } from "./components/ModelsList/ModelsList";
 import { iCarInfo, iElectricEntry } from "./interfaces";
 import { ArrowRightIcon } from "components/Icon/ArrowRightIcon";
+import { useIntersectionObserver } from "hooks/useIntersectionObserver";
 
 export const Electric: FC = () => {
   const { call, data, isError, isLoading } = useHttp();
@@ -16,13 +17,27 @@ export const Electric: FC = () => {
   const cars = entry?.car_list?.filter((car) => car.type !== "HYBRID");
   const hybridCars = entry?.car_list?.filter((car) => car.type === "HYBRID");
   const [info, setInfo] = useState<iCarInfo>();
+  const [opacity, setOpacity] = useState(1);
+
+  const isIntersecting = useIntersectionObserver(gtContainer, {
+    rootMargin: "-50%",
+  });
+
+  useEffect(() => {
+    isIntersecting && gtContainer?.current?.classList?.add("in-view");
+  }, [isIntersecting]);
 
   const scrollToELement = (id: string) => {
     const el = document?.getElementById(id);
     el && el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  useEffect(() => {}, []);
+  function changeImageOpacity() {
+    const funcCopy = changeImageOpacity as any;
+    funcCopy.opacity = opacity + 0.05;
+
+    console.log(funcCopy.opacity);
+  }
 
   useEffect(() => {
     call(MainPageAPI.getElectricCarsData());
@@ -98,7 +113,13 @@ export const Electric: FC = () => {
         </p>
       </div>
       <ModelsList data={cars} setCarInfo={setInfo} />
-      <div className="Electric-gt-container" ref={gtContainer}>
+      <div
+        className="Electric-gt-container"
+        ref={gtContainer}
+        onWheel={(e) => {
+          e.currentTarget.classList.add("in-view");
+        }}
+      >
         {entry?.gt_background && (
           <Image
             src={entry.gt_background?.url}
@@ -106,6 +127,8 @@ export const Electric: FC = () => {
             fill
             objectFit="cover"
             className="Electric-gt"
+            style={{ opacity }}
+            onWheel={changeImageOpacity}
           />
         )}
         {entry?.gt_additional_background && (
