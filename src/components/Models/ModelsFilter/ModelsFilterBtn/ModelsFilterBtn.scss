@@ -1,0 +1,23 @@
+.ModelsFilterBtn {
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--white);
+  font-size: var(--fSize18);
+  color: var(--white);
+  font-family: var(--Audi400);
+  cursor: pointer;
+  background-color: var(--black_10);
+
+  &.active {
+    background-color: var(--white);
+    color: var(--black_10);
+
+    &:hover {
+      background-color: var(--gray_10);
+    }
+  }
+
+  &:hover {
+    background-color: var(--white);
+    color: var(--black_10);
+  }
+}

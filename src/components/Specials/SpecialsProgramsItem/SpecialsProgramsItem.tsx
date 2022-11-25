@@ -1,6 +1,6 @@
 import { Icon } from "components/Icon/Icon";
-import Link from "next/link";
 import { FC, MutableRefObject, useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 interface iSpecialsProgramsItem {
   title: string;

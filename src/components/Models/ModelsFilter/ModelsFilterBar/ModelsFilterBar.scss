@@ -1,0 +1,21 @@
+.ModelsFilterBar {
+  padding: 1.25rem 2.5rem;
+  background-color: var(--black);
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  width: 100%;
+  font-size: var(--fSize22);
+  font-family: var(--Audi400);
+  cursor: pointer;
+
+  .Icon {
+    max-height: 24px !important;
+    margin-left: 1rem;
+    transition: transform 0.25s ease;
+    
+    &.active {
+      transform: rotate(180deg);
+    }
+  }
+}

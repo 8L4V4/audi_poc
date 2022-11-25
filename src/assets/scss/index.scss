@@ -1,16 +1,34 @@
-@import "colors", "main";
 @import "./fonts.scss";
-@import "../../components/Loader/Loader.scss";
-@import "../../layouts/Header/Header";
-@import "../../layouts/Footer/Footer";
-@import "../../components/Icon/Icon";
-@import "src/components/Portal/Portal.scss";
-@import "src/components/HeroBanner/HeroBanner";
+@import "colors", "main";
 @import "./shared";
-@import "../../components/Specials/Specials.scss";
-@import "../../components/Specials/SpecialsBanner/SpecialsBanner.scss";
-@import "../../components/Specials/SpecialsPresentation/SpecialsPresentation.scss";
-@import "../../components/Specials/SpecialsPrograms/SpecialsPrograms.scss";
-@import "../../components/Specials/SpecialsProgramsItem/SpecialsProgramsItem.scss";
-@import "../../components/Specials/SpecialsInfoModal/SpecialsInfoModal.scss";
+@import "components/ModalPopup/ModalPopup.scss";
+@import "src/components/Loader/Loader.scss";
+@import "src/layouts/Header/Header";
+@import "src/layouts/Footer/Footer";
+@import "src/components/Icon/Icon";
+@import "src/components/HeroBanner/HeroBanner";
+@import "src/views/Electric/Electric.scss";
+@import "src/views/Electric/components/ModelsList/ModelsList.scss";
+@import "src/components/Loader/Loader.scss";
+@import "src/components/Portal/Portal.scss";
+@import "src/components/Specials/Specials.scss";
+@import "src/components/Specials/SpecialsBanner/SpecialsBanner.scss";
+@import "src/components/Specials/SpecialsPresentation/SpecialsPresentation.scss";
+@import "src/components/Specials/SpecialsPrograms/SpecialsPrograms.scss";
+@import "src/components/Specials/SpecialsProgramsItem/SpecialsProgramsItem.scss";
+@import "src/components/Modal/Modal.scss";
+@import "src/components/Models/Models.scss";
+@import "src/components/Models/ModelsBanner/ModelsBanner.scss";
+@import "src/components/Models/ModelsFilter/ModelsFilter.scss";
+@import "src/components/Models/ModelsFilter/ModelsFilterBar/ModelsFilterBar.scss";
+@import "src/components/Models/ModelsFilter/ModelsFilterRange/ModelsFilterRange.scss";
+@import "src/components/Models/ModelsFilter/ModelsFilterBtn/ModelsFilterBtn.scss";
+@import "src/components/Models/ModelsFilter/ModelsActiveFilters/ModelsActiveFilters.scss";
+@import "src/components/Models/ModelsDetails/ModelsDetails.scss";
+@import "src/components/Models/ModelsList/ModelsList.scss";
+@import "src/components/Models/ModelsCard/ModelsCard.scss";
 @import "../../components/CarsSection/CarsSection.scss";
+
+
+
+

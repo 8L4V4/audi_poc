@@ -1,0 +1,124 @@
+.ModelsFilterRange {
+  position: relative;
+  --input_width: 640px;
+
+  &-input {
+    appearance: none;
+    background-color: transparent;
+    cursor: pointer;
+    display: block;
+    height: 26px;
+    margin: 0;
+    padding: 0;
+    width: var(--input_width);
+
+    &::-webkit-slider-runnable-track {
+      background: transparent;
+      height: 2px;
+    }
+
+    &::-moz-range-track {
+      background: var(--white);
+      height: 2px;
+    }
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      margin-top: -11px;
+      background-color: var(--black_10);
+      border: 1px solid var(--white);
+      border-radius: 50%;
+      height: 24px;
+      width: 24px;    
+    }
+
+    &::-moz-range-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      margin-top: -11px;
+      background-color: var(--black_10);
+      border: 1px solid var(--white);
+      border-radius: 50%;
+      height: 24px;
+      width: 24px;
+    }
+
+    &:focus, &:active, &:hover {
+      outline: none;
+      border: none;
+    }
+  }
+
+  &-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    z-index: -1;
+  }
+
+  &-item {
+    width: calc((var(--input_width) / 7));
+    height: 2px;
+    display: block;
+    background-color: var(--gray_20);
+    position: relative;
+
+    &.filled {
+      background-color: var(--white);
+
+      &::after {
+        background-color: var(--white) !important;
+      }
+
+      &::before {
+        background-color: var(--white) !important;
+      }
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--gray_20);
+    }
+    
+    &:last-of-type {
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background-color: var(--gray_20);
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: -5px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background-color: var(--gray_20);
+      }
+    }
+  }
+}

@@ -1,31 +1,47 @@
-import { FC } from "react";
+import { SpecialsPageAPI } from "api";
+import { useApi } from "hooks/useApi";
+import { FC, useEffect, useState } from "react";
 import { SpecialsProgramsItem } from "../SpecialsProgramsItem/SpecialsProgramsItem";
-
-interface iSpecialsPrograms {
-  options: any
+interface iDropDownData {
+  title: string;
+  subtitle: string;
+  item: {title: string, content: string; btn_title: string;}[]
 };
 
-export const SpecialsPrograms: FC<iSpecialsPrograms> = ({options}) => {
+export const SpecialsPrograms: FC = () => {
+  const { apiCall } = useApi();
+  const [dropDownData, setDropDownData] = useState<iDropDownData>()
 
-  if(!options) return null;
+  useEffect(() => {
+    apiCall(SpecialsPageAPI.getDropDownData())
+      .then(({data: {entry: {title, subtitle, item}}}) => setDropDownData({title, subtitle, item}))
+      .catch(() => {
+        console.log(
+          "%c Error getting { Specials Header } data",
+          "color: red; font-size: 16px; font-weight: bold; border-left: 5px solid red"
+        );
+      });
+  }, []);
+
+  if(!dropDownData) return null;
 
   return (
     <div className="SpecialsPrograms">
       <div className="SpecialsPrograms-header">
-        <h2 className="SpecialsPrograms-header-title">Special offers and programs</h2>
-        <p className="SpecialsPrograms-header-subtitle">If you're among a select category of Audi buyers, you may qualify for an exclusive special program.</p>
+        <h2 className="SpecialsPrograms-header-title">{dropDownData?.title}</h2>
+        <p className="SpecialsPrograms-header-subtitle">{dropDownData?.subtitle}</p>
       </div>
 
       <div className="SpecialsPrograms-dropDown">
-        {options.map((item: any, idx: number) => (
+        {dropDownData?.item?.map(item => (
           <SpecialsProgramsItem 
-            title={item[`section_${idx + 1}`].title}
-            content={item[`section_${idx + 1}`].content}
+            key={item.title}
+            title={item.title}
+            content={item.content}
             link={{
-              title: item[`section_${idx + 1}`].btn_title,
+              title: item.btn_title,
               url: "#"
             }}
-            key={item[`section_${idx + 1}`].title}
           /> 
           ))}
       </div>

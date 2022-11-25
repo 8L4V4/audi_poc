@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+:root {
+  --montserat: "Montserrat", sans-serif;
+}
+
 @font-face {
   font-family: "AudiNormal";
   src: url("../fonts/AudiType-Normal.woff2") format("woff2");
@@ -32,6 +38,7 @@
 
 :root {
   --fSize72: 4.5em;
+  --fSize68: 4.25em;
   --fSize64: 4em;
   --fSize56: 3.5em;
   --fSize48: 3em;
