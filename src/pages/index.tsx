@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import { HeroBanner } from "components/HeroBanner/HeroBanner";
-import { CarsSection } from "components/CarsSetion/CarsSection";
+import { CarsSection } from "components/CarsSection/CarsSection";
 
 const MainPage: NextPage = () => {
   return (

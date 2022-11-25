@@ -1,0 +1,65 @@
+.CarsSection {
+	&-tabs {
+		margin: 1rem auto 2rem;
+		width: 92%;
+
+		&-item {
+			display: inline-block;
+			padding: 0.75rem 1.5rem;
+			opacity: 0.6;
+
+			&.active {
+				pointer-events: none;
+				opacity: 1;
+				border-bottom: 1px solid var(--black);
+			}
+		}
+	}	
+
+	&-carousel {
+		display: flex;
+		align-items: center;
+
+		&-control {
+			&-btn {
+				flex: 0 0 55px;
+
+				&.prev {
+
+				}
+				&.next {
+
+				}
+			}
+		}
+
+		&-slides {
+			flex: 1 1 80%;
+			position: relative;
+			overflow-x: auto;
+			&-container {
+				position: absolute;
+				top: 0;
+				left: 0;
+				
+			}
+		}
+
+		&-slide {
+			&-img {
+
+			}
+
+			&-title {
+
+			}
+		}
+
+		&-subitems {
+
+		}
+	}
+}
+
+
+// 215 X 90

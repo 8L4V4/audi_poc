@@ -9,7 +9,7 @@ export const MainPageAPI = {
     url: "/content_types/main_page_hero_banner/entries/blt3085e48965238c9f?environment=dev_env&include_fallback=true",
   }),
   getModels: (): AxiosRequestConfig => ({
-    url: "/content_types/cars_carousel_section/entries/bltc249a3d3d10085fa?environment=dev_env&include_fallback=true&include[]=tabs.slides.slide_data",
+    url: "/content_types/cars_carousel_section/entries/bltc249a3d3d10085fa?environment=dev_env&include_fallback=true&include[]=tabs.slides.slide_data&include[]=tabs.slides.slide_sub_item.sub_item_data",
   }),
   getCTA: (): AxiosRequestConfig => ({
     url: "/favorites",
