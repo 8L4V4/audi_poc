@@ -1,6 +1,7 @@
 .ModelsFilter {
   background-color: var(--black);
-  
+  min-height: 100vh;
+
   .ModelsFilterBar {
     max-width: 1440px;
     margin: 0 auto;
@@ -12,7 +13,8 @@
     margin: 0 auto;
     position: relative;
     z-index: 1;
-    padding: 2.5rem 2.5rem 13.5rem 2.5rem;
+    padding: 2.5rem;
+    height: 80vh;
 
     &::before {
       content: "";
@@ -76,14 +78,18 @@
       cursor: pointer;
 
       &:hover {
+        border: 1px solid var(--gray_10);
 
+        .ModelsFilter-results-btn-text {
+          color: var(--gray_10);
+        }
       }
-    }
 
-    &-text {
-      color: var(--white);
-      font-family: var(--Audi400);
-      font-size: var(--fSize20);
+      &-text {
+        color: var(--white);
+        font-family: var(--Audi400);
+        font-size: var(--fSize16);
+      }
     }
   }
 }
