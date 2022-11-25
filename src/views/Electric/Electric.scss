@@ -90,16 +90,19 @@
   &-gt-container {
     position: relative;
     min-height: 850px;
+    transition: 0.3s ease;
+    height: 100vh;
     &.in-view {
       position: sticky;
       top: 0;
       left: 0;
-      height: 100vh;
+
       z-index: 5;
     }
   }
   &-gt {
     z-index: 2;
+    transition: opacity 0.3s ease;
   }
   &-gt-additional {
     z-index: 1;

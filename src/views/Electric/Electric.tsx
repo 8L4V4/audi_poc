@@ -30,6 +30,10 @@ export const Electric: FC = () => {
   });
 
   useEffect(() => {
+    opacity <= 0 && gtContainer?.current?.classList?.remove("in-view");
+  }, [opacity]);
+
+  useEffect(() => {
     isIntersecting && gtContainer?.current?.classList?.add("in-view");
   }, [isIntersecting]);
 
@@ -40,8 +44,8 @@ export const Electric: FC = () => {
 
   function changeImageOpacity(e: React.WheelEvent) {
     e.deltaY < 0
-      ? setOpacity((pv) => pv + 0.05)
-      : setOpacity((pv) => pv - 0.05);
+      ? setOpacity((pv) => pv + 0.25)
+      : setOpacity((pv) => pv - 0.25);
   }
 
   useEffect(() => {
