@@ -74,7 +74,7 @@
     left: 0;
     box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.1);
     background-color: var(--white);
-    z-index: 2;
+    z-index: 4;
   }
   &-banner-title {
     font-size: 3.25rem;
@@ -86,5 +86,81 @@
     text-align: center;
     margin: 0 auto;
     font-size: 1.25rem;
+  }
+  &-gt-container {
+    position: sticky;
+    min-height: 850px;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 5;
+  }
+
+  &-gt {
+    z-index: 2;
+    transition: opacity 0.5s ease;
+  }
+  &-gt-additional {
+    z-index: 1;
+  }
+  &-popup {
+    padding: 4rem 2rem 2rem 2rem;
+    min-width: 80vw;
+    top: 0;
+    transform: translate(-50%, 0);
+    border-radius: 0;
+  }
+  &-popup-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  &-popup-description {
+    padding-bottom: 6rem;
+  }
+  &-hybrid {
+    padding-top: 240px;
+    margin: 0 auto;
+
+    &-title {
+      font-size: 3.25rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    &-text {
+      font-size: 1.25rem;
+      max-width: 60%;
+      margin: 0 auto;
+      padding-bottom: 240px;
+    }
+  }
+  &-footer {
+    position: relative;
+    min-height: 1000px;
+    &-content {
+      position: absolute;
+      top: 6rem;
+      left: 2rem;
+      background-color: var(--white);
+      padding: 3.25rem;
+      max-width: 680px;
+    }
+    &-title {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    &-text {
+      margin-bottom: 1rem;
+    }
+    &-link {
+      color: var(--black);
+      display: flex;
+      align-items: center;
+      svg {
+        transition: transform 0.3s ease;
+      }
+      &:hover svg {
+        transform: translateX(5px) rotate(-90deg) !important;
+      }
+    }
   }
 }
