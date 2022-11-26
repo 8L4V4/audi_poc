@@ -1,23 +1,23 @@
 import { ChangeEvent, FC, FormEvent, useEffect, useState } from "react";
 import { SpecialsPageAPI } from "api";
 import { useApi } from "hooks/useApi";
+import { useHttp } from "hooks/useHttp";
 
 const allowedZipCodes = ["11111", "42121", "59912", "34444"];
 
 interface iHeaderData {
   title: string;
-  url: string;
+  background: {url: string;};
 };
 
 export const SpecialsBanner: FC = () => {
+  const { call, data } = useHttp();
   const [bannerErrors, setBannerErrors] = useState(false);
-  const [headerData, setHeaderData] = useState<iHeaderData>()
   const [zipCode, setZipCode] = useState("");
-  const { apiCall } = useApi();
+  const headerData = data?.data?.entry;
 
   useEffect(() => {
-    apiCall(SpecialsPageAPI.getHeaderData())
-      .then(({data: {entry: {title, background: {url}}}}) => setHeaderData({title, url}))
+    call(SpecialsPageAPI.getHeaderData())
       .catch(() => {
         console.log(
           "%c Error getting { Specials Banner } data",
@@ -44,11 +44,15 @@ export const SpecialsBanner: FC = () => {
     setZipCode(value);
   };
 
+  if(!headerData) return null;
+
+  const {title, background: {url}} = headerData as iHeaderData;
+
   return (
     <div className="SpecialsBanner">
-      <img src={headerData?.url} alt="background" className="SpecialsBanner-background"/>
+      <img src={url} alt="background" className="SpecialsBanner-background"/>
       <div className="SpecialsBanner-body">
-        <h2 className="SpecialsBanner-title">{headerData?.title}</h2>
+        <h2 className="SpecialsBanner-title">{title}</h2>
         
         <form className="SpecialsBanner-form" onSubmit={onSubmitHandler}>
           <input 
