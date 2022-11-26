@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { SpecialsBanner } from "components/Specials/SpecialsBanner/SpecialsBanner";
 import { SpecialsPresentation } from "components/Specials/SpecialsPresentation/SpecialsPresentation";
 import { SpecialsPrograms } from "components/Specials/SpecialsPrograms/SpecialsPrograms";
 import { NextPage } from "next";
-import { useApi } from "hooks/useApi";
 import { SpecialsPageAPI } from "api";
+import { useHttp } from "hooks/useHttp";
+import { Loader } from "components/Loader/Loader";
 
 export interface iPresentationData {
   title: string;
@@ -18,12 +19,11 @@ export interface iPresentationData {
 };
 
 const Specials: NextPage = () => {
-  const {apiCall} = useApi();
-  const [presentationData, setPresentationData] = useState<iPresentationData[]>();
+  const {call, data, isLoading} = useHttp();
+  const presentationData = data?.data?.entry?.items as iPresentationData[];
   
   useEffect(() => {
-    apiCall(SpecialsPageAPI.getPresentationData())
-      .then(({data: {entry: {items}}}) => setPresentationData(items))
+    call(SpecialsPageAPI.getPresentationData())
       .catch(() => {
         console.log(
           "%c Error getting { Specials Banner } data",
@@ -36,7 +36,9 @@ const Specials: NextPage = () => {
     <main className="Specials">
       <SpecialsBanner />
 
-      {presentationData?.map(({title, content, image, classname, modal_content, btn_title}) => (
+      {isLoading && <Loader/>}
+
+      {!isLoading && presentationData?.map(({title, content, image, classname, modal_content, btn_title}) => (
           <SpecialsPresentation
             key={title}
             title={title}
@@ -47,7 +49,7 @@ const Specials: NextPage = () => {
             className={classname}
             url="#"
           /> 
-        ))}
+      ))}
       
       <SpecialsPrograms/>
     </main>
