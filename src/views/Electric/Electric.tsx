@@ -35,13 +35,6 @@ export const Electric: FC = () => {
     return () => window?.removeEventListener("scroll", () => null);
   }, []);
 
-  useEffect(() => {
-    if (!gtContainer.current) return;
-    gtContainer.current.style.position = `${
-      opacity > 0 ? "sticky" : "relative"
-    }`;
-  }, [opacity]);
-
   const scrollToELement = (id: string) => {
     const el = document?.getElementById(id);
     el && el.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -136,26 +129,29 @@ export const Electric: FC = () => {
         </p>
       </div>
       <ModelsList data={cars} setCarInfo={setInfo} />
-      <div className="Electric-gt-container" ref={gtContainer}>
-        {entry?.gt_background && (
-          <Image
-            src={entry.gt_background?.url}
-            alt="audi gt in box image"
-            fill
-            objectFit="cover"
-            className="Electric-gt"
-            style={{ opacity }}
-          />
-        )}
-        {entry?.gt_additional_background && (
-          <Image
-            src={entry?.gt_additional_background?.url}
-            alt="audi gt on street image"
-            fill
-            objectFit="cover"
-            className="Electric-gt-additional"
-          />
-        )}
+      <div>
+        <div className="Electric-gt-container" ref={gtContainer}>
+          {entry?.gt_background && (
+            <Image
+              src={entry.gt_background?.url}
+              alt="audi gt in box image"
+              fill
+              objectFit="cover"
+              className="Electric-gt"
+              style={{ opacity }}
+            />
+          )}
+          {entry?.gt_additional_background && (
+            <Image
+              src={entry?.gt_additional_background?.url}
+              alt="audi gt on street image"
+              fill
+              objectFit="cover"
+              className="Electric-gt-additional"
+            />
+          )}
+        </div>
+        <div style={{ height: "200px" }}></div>
       </div>
       <section className="Electric-hybrid">
         <h3 className="Electric-hybrid-title">
