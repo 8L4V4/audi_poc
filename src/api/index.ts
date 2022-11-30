@@ -54,3 +54,32 @@ export const ModelsPageAPI = {
     url: "content_types/all_models/entries/blt06b81d744b828f32?environment=dev_env&include_fallback=true&include[]=category.headlineimg&include[]=category.list.img&include[]=category.headline",
   }),
 };
+
+export const SportModelsPageAPI = {
+  getBannerData: (): AxiosRequestConfig => ({
+    url: "content_types/sportmodelsbanner/entries/blt244f0cbcfaad4e33?environment=dev_env&include_fallback=true",
+  }),
+  getGalleyData: (): AxiosRequestConfig => ({
+    url: "content_types/sportmodelgallery/entries/blt4c8e16a43a3dcfba?environment=dev_env&include_fallback=true",
+  }),
+};
+
+export const InsideAudiPageAPI = {
+  getBannerData: (): AxiosRequestConfig => ({
+    url: "content_types/inside_audi_banner/entries/blt2e043f18afdc0b27?environment=dev_env&include_fallback=true",
+  }),
+  getGalleyData: (): AxiosRequestConfig => ({
+    url: "content_types/insideaudigallery/entries/bltaa5080b0ed9097a1?environment=dev_env&include_fallback=true",
+  }),
+};
+
+export const SportDNAPageAPI = {
+  getBannerData: (): AxiosRequestConfig => ({
+    url: "content_types/sportdnabanner/entries/blt9d3d2c8b5ab5e8fd?environment=dev_env&include_fallback=true",
+  }),
+  getGalleryData: (): AxiosRequestConfig => ({
+    url: "content_types/sportdnagallery/entries/blta26750b605a47426?environment=dev_env&include_fallback=true",
+  }),
+};
+
+

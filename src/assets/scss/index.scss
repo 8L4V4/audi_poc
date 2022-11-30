@@ -14,8 +14,8 @@
 @import "src/components/Specials/Specials.scss";
 @import "src/components/Specials/SpecialsBanner/SpecialsBanner.scss";
 @import "src/components/Specials/SpecialsPresentation/SpecialsPresentation.scss";
-@import "src/components/Specials/SpecialsPrograms/SpecialsPrograms.scss";
-@import "src/components/Specials/SpecialsProgramsItem/SpecialsProgramsItem.scss";
+@import "src/components/DropDown/DropDown.scss";
+@import "src/components/DropDownItem/DropDownItem.scss";
 @import "src/components/Modal/Modal.scss";
 @import "src/components/Models/Models.scss";
 @import "src/components/Models/ModelsBanner/ModelsBanner.scss";
@@ -27,8 +27,19 @@
 @import "src/components/Models/ModelsDetails/ModelsDetails.scss";
 @import "src/components/Models/ModelsList/ModelsList.scss";
 @import "src/components/Models/ModelsCard/ModelsCard.scss";
-@import "../../components/CarsSection/CarsSection.scss";
-
-
+@import "src/components/CarsSection/CarsSection.scss";
+@import "src/components/SportModels/SportModels.scss";
+@import "src/components/SportModels/SportBanner/SportBanner.scss";
+@import "src/components/PageNavBar/PageNavBar.scss";
+@import "src/components/PageInfoSection/PageInfoSection.scss";
+@import "src/components/PagePromotionSection/PagePromotionSection.scss";
+@import "src/components/SportModels/SportGallery/SportGallery.scss";
+@import "src/components/InsideAudi/InsideAudi.scss";
+@import "src/components/InsideAudi/InsideBanner/InsideBanner.scss";
+@import "src/components/InsideAudi/InsideGallery/InsideGallery.scss";
+@import "src/components/SportDNA/AudiSportDna.scss";
+@import "src/components/SportDNA/SportDNABanner/SportDNABanner.scss";
+@import "src/components/SportDNA/SportDNAGallery/SportDNAGallery.scss";
+@import "src/components/VideoPlayer/VideoPlayer.scss";
 
 

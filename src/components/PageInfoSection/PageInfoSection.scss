@@ -1,0 +1,50 @@
+.PageInfoSection {
+  padding: 4rem 6rem 12rem 6rem;
+  max-width: 1920px;
+  margin: 0 auto;
+  
+  &-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 7rem;
+
+    &-text {
+      font-size: var(--fSize20);
+      font-family: var(--Audi500);
+      letter-spacing: -0.5px;
+      color: var(--gray_0);
+    }
+
+    &-link {
+      color: var(--gray_0);
+      letter-spacing: -0.25px;
+      font-family: var(--AudiVF);
+    }
+  }
+
+  &-content {
+    max-width: 1300px;
+    margin: 0 auto;
+
+    &-title {
+      font-size: var(--fSize64);
+      font-family: var(--Audi500);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      line-height: 6rem;
+      text-align: center;
+    }
+
+    &-text {
+      display: block;
+      padding: 0 4rem;
+      text-align: center;
+      font-family: var(--AudiVF);
+      color: var(--gray_0);
+      line-height: 1.5rem;
+      font-weight: 500;
+      letter-spacing: -0.15px;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { SpecialsBanner } from "components/Specials/SpecialsBanner/SpecialsBanner";
 import { SpecialsPresentation } from "components/Specials/SpecialsPresentation/SpecialsPresentation";
-import { SpecialsPrograms } from "components/Specials/SpecialsPrograms/SpecialsPrograms";
+import { DropDown } from "components/DropDown/DropDown";
 import { NextPage } from "next";
 import { SpecialsPageAPI } from "api";
 import { useHttp } from "hooks/useHttp";
@@ -51,7 +51,7 @@ const Specials: NextPage = () => {
           /> 
       ))}
       
-      <SpecialsPrograms/>
+      <DropDown axiosRequest={SpecialsPageAPI.getDropDownData}/>
     </main>
   );
 };
