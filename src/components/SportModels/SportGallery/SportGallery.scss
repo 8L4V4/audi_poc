@@ -1,0 +1,71 @@
+.SportGallery {
+  max-width: 1920px;
+  margin: 0 auto;
+
+  &-item {
+    max-width: 1920px;
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+
+    &:first-of-type {
+      .SportGallery-item-content {
+        right: 72px;
+        left: unset;
+
+        &-title {
+          text-align: end;
+        }
+      }
+    }
+
+    &-content {
+      position: absolute;
+      top: 48px;
+      left: 72px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 500px;
+
+      &-title {
+        font-size: var(--fSize44);
+        letter-spacing: -0.5px;
+        font-family: var(--Audi500);
+        font-weight: 600;
+        color: var(--white);
+        flex-basis: 100%;
+        margin-bottom: 0.5rem;
+      }
+
+      &-link {
+        color: var(--black);
+        background-color: var(--white);
+        padding: 1rem 0;
+        width: 100%;
+        max-width: 240px;
+        text-align: center;
+        margin-right: 0.35rem;
+
+        &:last-of-type {
+          color: var(--white);
+          background-color: transparent;
+          border: 1px solid var(--white);
+          margin-right: 0;
+        }
+      }
+    }
+
+    &-background {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+    }
+  }
+}

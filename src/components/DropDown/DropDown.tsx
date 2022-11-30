@@ -1,21 +1,26 @@
-import { SpecialsPageAPI } from "api";
 import { Loader } from "components/Loader/Loader";
-import { useApi } from "hooks/useApi";
+import { DropDownItem } from "components/DropDownItem/DropDownItem";
 import { useHttp } from "hooks/useHttp";
-import { FC, useEffect, useState } from "react";
-import { SpecialsProgramsItem } from "../SpecialsProgramsItem/SpecialsProgramsItem";
+import { FC, useEffect } from "react";
+import { AxiosRequestConfig } from "axios";
+
 interface iDropDownData {
   title: string;
   subtitle: string;
   item: {title: string, content: string; btn_title: string;}[]
 };
 
-export const SpecialsPrograms: FC = () => {
+interface iDropDown {
+  axiosRequest: () => AxiosRequestConfig<any>;
+  className?: string;
+};
+
+export const DropDown: FC<iDropDown> = ({axiosRequest, className}) => {
   const { call, data, isLoading } = useHttp();
   const dropDownData = data?.data?.entry as iDropDownData;
   
   useEffect(() => {
-    call(SpecialsPageAPI.getDropDownData())
+    call(axiosRequest())
       .catch(() => {
         console.log(
           "%c Error getting { Specials Header } data",
@@ -27,19 +32,19 @@ export const SpecialsPrograms: FC = () => {
   if(!dropDownData) return null;
 
   return (
-    <div className="SpecialsPrograms">
+    <div className={`DropDown ${className || ""}`}>
       {isLoading && <Loader/>}
 
       {!isLoading && (
       <>
-        <div className="SpecialsPrograms-header">
-          <h2 className="SpecialsPrograms-header-title">{dropDownData?.title}</h2>
-          <p className="SpecialsPrograms-header-subtitle">{dropDownData?.subtitle}</p>
+        <div className="DropDown-header">
+          <h2 className="DropDown-header-title">{dropDownData?.title}</h2>
+          <p className="DropDown-header-subtitle">{dropDownData?.subtitle}</p>
         </div>
 
-        <div className="SpecialsPrograms-dropDown">
+        <div className="DropDown-list">
           {dropDownData?.item?.map(item => (
-            <SpecialsProgramsItem 
+            <DropDownItem 
               key={item.title}
               title={item.title}
               content={item.content}

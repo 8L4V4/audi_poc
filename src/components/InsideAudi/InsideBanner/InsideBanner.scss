@@ -1,0 +1,21 @@
+.InsideBanner {
+  width: 100%;
+  max-width: 1920px;
+  height: 600px;
+  margin: 0 auto;
+  background-size: cover;
+  padding: 3.25rem 4.75rem;
+  color: var(--white);
+
+  &-title {
+    font-family: var(--Audi500);
+    font-size: var(--fSize44);
+    margin-bottom: 2rem;
+  }
+
+  &-text {
+    font-family: var(--Audi500);
+    font-size: var(--fSize22);
+    font-weight: 700;
+  }
+}

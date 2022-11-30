@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { NextPage } from "next";
 import { ArrowDownIcon } from "./ArrowDownIcon";
 import { ArrowLeftIcon } from "./ArrowLeftIcon";
 import { ArrowRightIcon } from "./ArrowRightIcon";
@@ -10,10 +11,12 @@ import { ProfileIcon } from "./ProfileIcon";
 import { TwitterIcon } from "./TwitterIcon";
 import { YoutubeIcon } from "./YoutubeIcon";
 import { FacebookIcon } from "./FacebookIcon";
-import { NextPage } from "next";
+import { Play } from "./Play";
 import { Cross } from "./Cross";
+import { SteeringWheel } from "./SteeringWheel";
+import { Cars } from "./Cars";
 
-type tIconName =
+export type tIconName =
   | "arrow-down"
   | "arrow-left"
   | "arrow-right"
@@ -25,6 +28,9 @@ type tIconName =
   | "profile"
   | "twitter"
   | "youtube"
+  | "play"
+  | "steering-wheel"
+  | "cars"
   | "cross";
 
 const map: { [k: string]: NextPage } = {
@@ -39,7 +45,10 @@ const map: { [k: string]: NextPage } = {
   profile: ProfileIcon,
   twitter: TwitterIcon,
   youtube: YoutubeIcon,
-  cross: Cross
+  cross: Cross,
+  play: Play,
+  "steering-wheel": SteeringWheel,
+  cars: Cars
 };
 
 interface iIconProps {

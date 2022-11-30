@@ -1,9 +1,9 @@
-.SpecialsProgramsItem {
+.iDropDownItem {
   width: 100%;
   text-align: start;
 
   &:first-of-type {
-    .SpecialsProgramsItem-btn {
+    .iDropDownItem-btn {
       border-top: 1px solid var(--gray_10);
     }
   }
