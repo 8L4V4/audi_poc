@@ -1,0 +1,96 @@
+.SportHistoryArticle {
+  max-width: 1920px;
+  margin: 0 auto;
+  overflow: hidden;
+
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem 0;
+    max-width: 1440px;
+    margin: 0 auto;
+
+    &.swap {
+      .SportHistoryArticle-video {
+        order: 2;
+      }
+
+      .SportHistoryArticle-content {
+        order: 1;
+      }
+    }
+
+    &.wide {
+      max-width: 1920px;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: unset;
+
+      .SportHistoryArticle-content {
+        order: 1;
+        max-width: 1440px;
+        margin: 0 auto 0 200px;
+
+        &-text {
+          max-width: 1200px;
+        }
+
+        &-title {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+
+  &-video {
+    max-width: 730px;
+    height: 730px;
+    flex-basis: 50%;
+    order: 1;
+
+    &::before {
+      all: unset;
+    }
+    
+    .Icon {
+      fill: var(--white);
+    }
+  }
+
+  &-img {
+    max-width: 1920px;
+    margin: 0 auto;
+    order: 2;
+  }
+
+  &-content {
+    flex-basis: 50%;
+    max-width: 730px;
+    height: 730px;
+    padding: 4rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    order: 2;
+
+    &-title {
+      margin-bottom: 1.825rem;
+      font-size: var(--fSize44);
+      font-family: var(--Audi500);
+    }
+
+    &-text {
+      line-height: 1.5rem;
+      max-width: 600px;
+      margin-bottom: 1.5rem;
+    }
+
+    &-subtitle {
+      font-size: var(--Audi400);
+      font-size: var(--fSize14);
+      max-width: 600px;
+    }
+  }
+}

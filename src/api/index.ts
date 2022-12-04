@@ -82,4 +82,16 @@ export const SportDNAPageAPI = {
   }),
 };
 
+export const MotorSportHistoryPageAPI = {
+  getBannerData: (): AxiosRequestConfig => ({
+    url: "content_types/sporthistorybanner/entries/blt3585540b44aae369?environment=dev_env&include_fallback=true",
+  }),
+  getArticlesData: (): AxiosRequestConfig => ({
+    url: "content_types/sporthistoryarticles/entries/blt4f167066528d8150?environment=dev_env&include_fallback=true",
+  }),
+  getLegendsData: (): AxiosRequestConfig => ({
+    url: "content_types/sporthistorylegends/entries/bltbb364e1b1a1dbfc9?environment=dev_env&include_fallback=true",
+  }),
+};
+
 

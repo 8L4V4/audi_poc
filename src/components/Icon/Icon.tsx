@@ -15,6 +15,8 @@ import { Play } from "./Play";
 import { Cross } from "./Cross";
 import { SteeringWheel } from "./SteeringWheel";
 import { Cars } from "./Cars";
+import { Gallery } from "./Gallery";
+import { Plus } from "./Plus";
 
 export type tIconName =
   | "arrow-down"
@@ -31,6 +33,8 @@ export type tIconName =
   | "play"
   | "steering-wheel"
   | "cars"
+  | "gallery"
+  | "plus"
   | "cross";
 
 const map: { [k: string]: NextPage } = {
@@ -48,7 +52,9 @@ const map: { [k: string]: NextPage } = {
   cross: Cross,
   play: Play,
   "steering-wheel": SteeringWheel,
-  cars: Cars
+  cars: Cars,
+  gallery: Gallery,
+  plus: Plus
 };
 
 interface iIconProps {
