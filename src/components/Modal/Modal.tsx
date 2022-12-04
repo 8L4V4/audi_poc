@@ -28,19 +28,20 @@ export const Modal: FC<iModal> = ({show, onClose, children, className, fullScree
   return (
     <Portal>
       <div
-        className={`Modal ${className || ""}`}
+        className="Modal"
         role="dialog"
         ref={ref}
         onClick={() => onClose()}
       />
 
-      <div className={`Modal-content ${fullScreen ? "fullScreen" : ""}`}>
+      <div className={`Modal-content ${fullScreen ? "fullScreen" : ""} ${className || ""}`}>
         <button className="Modal-close" onClick={() => onClose()}>
           <Icon name="cross" />
         </button>
 
         {children}
       </div>
+
     </Portal>
   );
 };

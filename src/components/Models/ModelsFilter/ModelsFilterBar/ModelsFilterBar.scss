@@ -13,6 +13,7 @@
     max-height: 24px !important;
     margin-left: 1rem;
     transition: transform 0.25s ease;
+    stroke: var(--black);
     
     &.active {
       transform: rotate(180deg);

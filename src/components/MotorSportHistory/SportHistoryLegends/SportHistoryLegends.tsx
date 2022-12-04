@@ -6,7 +6,7 @@ import { SportHistoryLegendsModal } from "../SportHistoryLegendsModal/SportHisto
 
 interface iLegendsData {
   title: string;
-  list: iSportHistoryLegendsItem[];
+  list: Omit<iSportHistoryLegendsItem, "showModal">[];
 };
 
 export const SportHistoryLegends: FC = () => {
@@ -43,7 +43,12 @@ export const SportHistoryLegends: FC = () => {
         )}
       </div>
 
-      <SportHistoryLegendsModal show={modalData} data={legendsData.list}/>
+      <SportHistoryLegendsModal 
+        currentSlide={modalData} 
+        onClose={() => setModalData("")} 
+        setSlide={(text: string) => setModalData(text)}
+       />
+
     </div>
   );
 };

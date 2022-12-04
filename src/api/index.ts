@@ -92,6 +92,9 @@ export const MotorSportHistoryPageAPI = {
   getLegendsData: (): AxiosRequestConfig => ({
     url: "content_types/sporthistorylegends/entries/bltbb364e1b1a1dbfc9?environment=dev_env&include_fallback=true",
   }),
+  getSliderData: (): AxiosRequestConfig => ({
+    url: "content_types/sporthistoryslider/entries/blt34c48bb57bb4e398?environment=dev_env&include_fallback=true",
+  }),
 };
 
 
