@@ -5,7 +5,7 @@ const navList = [
   {title: "Overview", url: "/inside-audi"},
   {title: "Audi Sport models", url: "/sport-models"},
   {title: "Audi Sport DNA", url: "/audi-sport-dna"},
-  {title: "Motorsport history", url: "#"},
+  {title: "Motorsport history", url: "/motorsport-history"},
   {title: "Gallery", url: "#"},
   {title: "Audi Sport customer racing", url: "#"},
 ];

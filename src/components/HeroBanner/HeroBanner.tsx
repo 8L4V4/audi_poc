@@ -52,13 +52,13 @@ export const HeroBanner: FC = () => {
       <div className="HeroBanner-links">
         {Array.isArray(data?.links) &&
           data?.links.length &&
-          data.links?.map(({ link: { link, link_type } }) => (
+          data.links?.map(({ link: { link, link_type }}, idx) => (
             <Link
-              key={link.href}
-              href={link.href}
+              key={link?.href || idx}
+              href={link?.href || "#"}
               className={`HeroBanner-links-item ${link_type || ""}`}
             >
-              {link.title}
+              {link?.title}
             </Link>
           ))}
       </div>

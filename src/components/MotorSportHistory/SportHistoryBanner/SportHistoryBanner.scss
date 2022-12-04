@@ -1,0 +1,11 @@
+.SportHistoryBanner {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 3rem 4.5rem;
+  height: 600px;
+
+  &-title {
+    font-size: var(--fSize42);
+    font-family: var(--Audi500);
+  }
+}
