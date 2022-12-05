@@ -7,7 +7,6 @@ const navList = [
   {title: "Audi Sport DNA", url: "/audi-sport-dna"},
   {title: "Motorsport history", url: "/motorsport-history"},
   {title: "Gallery", url: "/gallery"},
-  {title: "Audi Sport customer racing", url: "#"},
 ];
 
 interface iPageNavBar {
