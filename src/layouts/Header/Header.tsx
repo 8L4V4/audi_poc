@@ -16,6 +16,12 @@ export function Header() {
         <Link className="Header-nav-item" href="/special-offers">
           Special Offers
         </Link>
+        <Link className="Header-nav-item" href="/models">
+          Models
+        </Link>
+        <Link className="Header-nav-item" href="/sport-models">
+          Sport Models
+        </Link>
       </nav>
       <button className="Header-profile">
         <ProfileIcon />
