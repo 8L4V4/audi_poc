@@ -18,6 +18,7 @@ import { Cars } from "./Cars";
 import { Gallery } from "./Gallery";
 import { Plus } from "./Plus";
 import { Download } from "./Download";
+import {Speedometer} from "./Speedometer";
 
 export type tIconName =
   | "arrow-down"
@@ -37,6 +38,7 @@ export type tIconName =
   | "gallery"
   | "plus"
   | "download"
+  | "speedometer"
   | "cross";
 
 const map: { [k: string]: NextPage } = {
@@ -57,7 +59,8 @@ const map: { [k: string]: NextPage } = {
   cars: Cars,
   gallery: Gallery,
   plus: Plus,
-  download: Download
+  download: Download,
+  speedometer: Speedometer
 };
 
 interface iIconProps {

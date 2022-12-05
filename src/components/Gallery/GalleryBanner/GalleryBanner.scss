@@ -1,0 +1,12 @@
+.GalleryBanner {
+  background-size: cover;
+  max-width: 1920px;
+  margin: 0 auto;
+  height: 600px;
+  padding: 3rem 5rem;
+
+  &-title {
+    font-size: var(--fSize42);
+    font-family: var(--Audi500);
+  }
+}
