@@ -97,4 +97,13 @@ export const MotorSportHistoryPageAPI = {
   }),
 };
 
+export const GallerySportPageAPI = {
+  getBannerData: (): AxiosRequestConfig => ({
+    url: "content_types/gallerybanner/entries/bltc9ecf9f7c3f479cb?environment=dev_env&include_fallback=true",
+  }),
+  getGalleryData: (): AxiosRequestConfig => ({
+    url: "content_types/gallery/entries/blt997c867eb81e61b4?environment=dev_env&include_fallback=true",
+  }),
+}
+
 
