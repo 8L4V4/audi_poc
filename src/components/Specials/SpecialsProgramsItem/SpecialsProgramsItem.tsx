@@ -9,7 +9,7 @@ interface iSpecialsProgramsItem {
     title: string;
     url: string;
   }
-};
+}
 
 export const SpecialsProgramsItem: FC<iSpecialsProgramsItem> = ({title, content, link}) => {
   const [showDropdown, setShowDropdown] = useState(false);

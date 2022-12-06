@@ -7,7 +7,7 @@ interface iModelsActiveFilters {
   onClear: () => void;
   onRemoveItem: (item: string | ReactNode) => void;
   removeRange: () => void;
-};
+}
 
 export const ModelsActiveFilters: FC<iModelsActiveFilters> = ({options, onClear, onRemoveItem, rangeFilter, removeRange}) => {
 

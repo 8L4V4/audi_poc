@@ -1,0 +1,29 @@
+.CTASection {
+	max-width:1000px;
+	margin: 8rem auto;
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	&-header,	&-note {
+		flex: 0 0 100%;
+		margin-bottom: 2.5rem;
+		line-height: 1;
+	}
+
+	&-header {
+		font-family: AudiNormal, sans-serif;
+		font-size: 2rem;
+	}
+
+	&-note {
+		font-style: .8rem;
+	}
+
+	&-button {
+		display: inline-block;
+		margin: .5em;
+		min-width: 250px;
+	}
+}

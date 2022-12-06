@@ -3,7 +3,7 @@ import { ChangeEvent, FC, useState } from "react";
 interface iModelsFilterRange {
   setPrice: (v: string) => void;
   onRangeFilter: (v: string) => void;
-};
+}
 
 export const ModelsFilterRange: FC<iModelsFilterRange> = ({setPrice, onRangeFilter}) => {
   const [list, setList] = useState([
@@ -25,7 +25,7 @@ export const ModelsFilterRange: FC<iModelsFilterRange> = ({setPrice, onRangeFilt
         item.className = "filled"
       } else {
         item.className = ""
-      };
+      }
 
       return item;
     });
@@ -34,7 +34,7 @@ export const ModelsFilterRange: FC<iModelsFilterRange> = ({setPrice, onRangeFilt
       setPrice("25,000");
       onRangeFilter("25,000");
       return;
-    };
+    }
 
     setPrice(price);
     

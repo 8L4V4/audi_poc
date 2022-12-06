@@ -7,7 +7,7 @@ const allowedZipCodes = ["11111", "42121", "59912", "34444"];
 interface iHeaderData {
   title: string;
   url: string;
-};
+}
 
 export const SpecialsBanner: FC = () => {
   const [bannerErrors, setBannerErrors] = useState(false);
@@ -39,7 +39,7 @@ export const SpecialsBanner: FC = () => {
   const onZipCodeHandler = (value: string) => {
     if(value === "") {
       setBannerErrors(false);
-    };
+    }
 
     setZipCode(value);
   };

@@ -4,7 +4,7 @@ import { ButtonHTMLAttributes, FC } from "react";
 interface iModelsFilterBar extends ButtonHTMLAttributes<HTMLButtonElement> {
   title?: string;
   IconClassName?: string;
-};
+}
 
 export const ModelsFilterBar: FC<iModelsFilterBar> = ({title, IconClassName,...props}) => {
   return (

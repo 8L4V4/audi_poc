@@ -6,7 +6,7 @@ interface iDropDownData {
   title: string;
   subtitle: string;
   item: {title: string, content: string; btn_title: string;}[]
-};
+}
 
 export const SpecialsPrograms: FC = () => {
   const { apiCall } = useApi();
