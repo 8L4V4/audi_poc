@@ -92,7 +92,6 @@ export const Electric: FC = () => {
             <Image
               src={entry?.hero_background?.url}
               fill
-              objectFit="cover"
               alt="hero banner logo"
               className="Electric-image"
             />
@@ -136,7 +135,6 @@ export const Electric: FC = () => {
               src={entry.gt_background?.url}
               alt="audi gt in box image"
               fill
-              objectFit="cover"
               className="Electric-gt"
               style={{ opacity }}
             />
@@ -146,7 +144,6 @@ export const Electric: FC = () => {
               src={entry?.gt_additional_background?.url}
               alt="audi gt on street image"
               fill
-              objectFit="cover"
               className="Electric-gt-additional"
             />
           )}
@@ -171,7 +168,6 @@ export const Electric: FC = () => {
             src={entry.footer_background.url}
             alt="audi gt image"
             fill
-            objectFit="cover"
             className="Electric-footer-image"
             loading="lazy"
           />

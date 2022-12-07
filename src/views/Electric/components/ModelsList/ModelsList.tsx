@@ -25,7 +25,6 @@ export const ModelsList: FC<iModelsList> = ({ data, setCarInfo }) => {
               src={car?.image?.url}
               alt={`${car?.name}-logo`}
               fill
-              objectFit="cover"
               className="ModelsList-img"
               loading="lazy"
             />

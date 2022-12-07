@@ -26,22 +26,24 @@ export const MarketingSection = () => {
 			})
 	}, [])
 
+	console.log("%c DATA", "color: orange; font-size: 16px; font-weight: bold; border-left: 5px solid orange", data);
+
 	return (
 		<div className="MarketingSection">
 			{
 				data?.map((block, i) => (
 					<div className={`MarketingSection-block ${i % 2 ? "reverse" : ""}`} key={i}>
-							<Image src={block?.image.url} className="MarketingSection-imag" alt={block?.header} width={590} height={590}/>
-							<div className="MarketingSection-content">
-								<h3 className="MarketingSection-header">{block?.header}</h3>
-								<div className="MarketingSection-text" dangerouslySetInnerHTML={{__html: block?.text}}></div>
-								{ block?.buttons.map((btn) => (
-										!btn?.link?.url 
-											? <button className={`MarketingSection-btn ${btn.type}`} key={btn.title}> {btn.title} </button>
-											: <Link href={btn.link.href} className={`MarketingSection-btn ${btn.type}`} key={btn.title}></Link>
-									)) 
-								}
-							</div>
+						<Image src={block?.image?.url} className="MarketingSection-imag" alt={block?.header} width={590} height={590}/>
+						<div className="MarketingSection-content">
+							<h3 className="MarketingSection-header">{block?.header}</h3>
+							<div className="MarketingSection-text" dangerouslySetInnerHTML={{__html: block?.text}}></div>
+							{ block?.buttons.map((btn) => (
+									!btn.link?.href
+										? <button className={`MarketingSection-btn ${btn.type}`} key={btn.title}> {btn.title} </button>
+										: <Link href={btn.link.href} className={`MarketingSection-btn ${btn.type}`} key={btn.title}>{btn.title}</Link>
+								))
+							}
+						</div>
 					</div>
 				))
 			}

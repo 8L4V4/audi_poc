@@ -1,10 +1,10 @@
 import { NextPage } from "next";
-import { HeroBanner } from "components/HeroBanner/HeroBanner";
-import { CarsSection } from "components/CarsSection/CarsSection";
-import { CTASection } from "components/CTASection/CTASection";
-import { MarketingSection } from "components/MarketingSection/MarketingSection";
-import { AdHeroBanner } from "components/AdHeroBanner/AdHeroBanner";
-import {AudiFeatures} from "../components/AudiFeatures/AudiFeatures";
+import { HeroBanner } from "views/Main/HeroBanner/HeroBanner";
+import { CarsSection } from "views/Main/CarsSection/CarsSection";
+import { CTASection } from "views/Main/CTASection/CTASection";
+import { MarketingSection } from "views/Main/MarketingSection/MarketingSection";
+import { AdHeroBanner } from "views/Main/AdHeroBanner/AdHeroBanner";
+import {AudiFeatures} from "../views/Main/AudiFeatures/AudiFeatures";
 
 const MainPage: NextPage = () => {
   return (

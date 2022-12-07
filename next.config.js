@@ -7,7 +7,7 @@ module.exports = {
     apiUrl: "https://cdn.contentstack.io/v3/",
     api_key: process.env.CONTENTSTACK_API_KEY,
     access_token: process.env.CONTENTSTACK_DELIVERY_KEY,
-    branch: "prod",
+    branch: process.env.CONTENTSTACK_BRANCH,
   },
   reactStrictMode: true,
   images: {

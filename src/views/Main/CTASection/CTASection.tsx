@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react"
 import { useApi } from "hooks/useApi"
 import { MainPageAPI } from "api";
-import {iButtonField, iLinkField} from "../../types/fields";
+import {iButtonField, iLinkField} from "../../../types/fields";
 import Link from "next/link";
-import {ModalPopUp} from "../ModalPopup/ModalPopup";
-import {Modal} from "../Modal/Modal";
+import {ModalPopUp} from "../../../components/ModalPopup/ModalPopup";
+import {Modal} from "../../../components/Modal/Modal";
 
 interface iCTASection {
 	cta_buttons: Array<iButtonField>,

@@ -3,10 +3,10 @@ import { MainPageAPI } from "api";
 import { useApi } from "hooks/useApi";
 import Image from "next/image";
 import Link from "next/link";
-import { iLinkField, iPictureField } from "../../types/fields";
-import {ArrowLeftIcon} from "../Icon/ArrowLeftIcon"
-import {ArrowRightIcon} from "../Icon/ArrowRightIcon"
-import {Cross} from "../Icon/Cross"
+import { iLinkField, iPictureField } from "../../../types/fields";
+import {ArrowLeftIcon} from "../../../components/Icon/ArrowLeftIcon"
+import {ArrowRightIcon} from "../../../components/Icon/ArrowRightIcon"
+import {Cross} from "../../../components/Icon/Cross"
 
 interface iTabData {
   title: string,
@@ -89,12 +89,10 @@ export const CarsSection = () => {
     }
   }
 
-  const handleScroll = (e: React.MouseEvent) => {
+  const handleScroll = ({target}: React.UIEvent) => {
     timeout.current && clearTimeout(timeout.current);
-    timeout.current = setTimeout( () => setScrolledTo(e.target.scrollLeft), 200 );
+    timeout.current = setTimeout( () => setScrolledTo((target as HTMLElement).scrollLeft || 0), 200 );
   }
-
-  console.log("%c tabs", "color: orange; font-size: 16px; font-weight: bold; border-left: 5px solid orange", tabsData);
 
   return (
     <div className="CarsSection">
@@ -150,7 +148,7 @@ export const CarsSection = () => {
         </div>
         <button 
           className={`CarsSection-carousel-control-btn next 
-            ${scrolledTo >= carouselRef?.current?.scrollWidth - carouselRef?.current?.offsetWidth ? "hide" : ""}
+            ${(scrolledTo >= (carouselRef?.current?.scrollWidth || 0) - (carouselRef?.current?.offsetWidth || 0)) ? "hide" : ""}
           `} 
           onClick={() => scroll("next")}
         > 

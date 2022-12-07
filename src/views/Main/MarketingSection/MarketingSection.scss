@@ -31,6 +31,7 @@ $vertical-spacing: 1.5rem;
 
 	&-btn {
 		padding: 1rem 2.5rem;
+		display: inline-block;
 
 		&.btn-filled {
 			background-color: var(--black);

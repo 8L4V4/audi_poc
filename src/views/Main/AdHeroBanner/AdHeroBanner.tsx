@@ -3,17 +3,18 @@ import { useApi } from 'hooks/useApi';
 import Link from 'next/link';
 import React, {useState, useEffect} from 'react';
 import { iButtonField, iPictureField } from 'types/fields';
-import {useHttp} from "../../hooks/useHttp";
 
 interface iAdHeroBanner {
 	heading_1: string;
 	heading_2: string;
 	image: iPictureField,
-	radio_input: Array<{
-		label: string;
-		is_default: boolean;
-		button: iButtonField;
-	}>
+	radio_input: Array<iRadioInput>
+}
+
+interface iRadioInput {
+	label: string;
+	is_default: boolean;
+	button: iButtonField;
 }
 
 export const AdHeroBanner = () => {
@@ -25,7 +26,7 @@ export const AdHeroBanner = () => {
 		apiCall(MainPageAPI.getMainPageAdHeroData())
 		.then(({data: {entry}}) => {
 			setData(entry);
-			const btn = entry.radio_input.find((input) => input.is_default ? input.button : false)?.button || undefined;
+			const btn = entry.radio_input.find((input:iRadioInput) => input.is_default ? input.button : false)?.button;
 			btn && setBtnData(btn);
 		})
 		.catch(err => console.log(err));
@@ -34,7 +35,7 @@ export const AdHeroBanner = () => {
 	const switchRadio = (button: iButtonField) => setBtnData(button);
 
 	return (
-		<div className="AdHeroBanner" style={{backgroundImage: `url(${data?.image.url})`}}>
+		<div className="AdHeroBanner" style={{backgroundImage: `url(${data?.image?.url})`}}>
 			<h2 className="AdHeroBanner-main-header">{data?.heading_1}</h2>
 			<h3 className="AdHeroBanner-sub-header">{data?.heading_2}</h3>
                 

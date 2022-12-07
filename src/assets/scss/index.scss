@@ -1,12 +1,12 @@
 @import "./fonts.scss";
 @import "colors", "main";
 @import "./shared";
-@import "components/ModalPopup/ModalPopup.scss";
+@import "src/components/ModalPopup/ModalPopup.scss";
 @import "src/components/Loader/Loader.scss";
 @import "src/layouts/Header/Header";
 @import "src/layouts/Footer/Footer";
 @import "src/components/Icon/Icon";
-@import "src/components/HeroBanner/HeroBanner";
+@import "../../views/Main/HeroBanner/HeroBanner";
 @import "src/views/Electric/Electric.scss";
 @import "src/views/Electric/components/ModelsList/ModelsList.scss";
 @import "src/components/Loader/Loader.scss";
@@ -27,7 +27,7 @@
 @import "src/components/Models/ModelsDetails/ModelsDetails.scss";
 @import "src/components/Models/ModelsList/ModelsList.scss";
 @import "src/components/Models/ModelsCard/ModelsCard.scss";
-@import "src/components/CarsSection/CarsSection.scss";
+@import "src/views/Main/CarsSection/CarsSection.scss";
 @import "src/components/SportModels/SportModels.scss";
 @import "src/components/SportModels/SportBanner/SportBanner.scss";
 @import "src/components/PageNavBar/PageNavBar.scss";
@@ -50,11 +50,11 @@
 @import "src/components/Gallery/Gallery.scss";
 @import "src/components/Gallery/GalleryBanner/GalleryBanner.scss";
 @import "src/components/Gallery/GallerySlider/GallerySlider.scss";
-@import "../../components/CarsSection/CarsSection.scss";
-@import "../../components/CTASection/CTASection.scss";
-@import "../../components/MarketingSection/MarketingSection.scss";
-@import "../../components/AdHeroBanner/AdHeroBanner.scss";
-@import "../../components/AudiFeatures/AudiFeatures.scss";
+@import "src/views/Main/CarsSection/CarsSection.scss";
+@import "src/views/Main/CTASection/CTASection.scss";
+@import "src/views/Main/MarketingSection/MarketingSection.scss";
+@import "src/views/Main/AdHeroBanner/AdHeroBanner.scss";
+@import "src/views/Main/AudiFeatures/AudiFeatures.scss";
 
 
 
