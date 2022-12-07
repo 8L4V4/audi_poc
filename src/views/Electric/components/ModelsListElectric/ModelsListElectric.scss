@@ -1,0 +1,283 @@
+.ModelsListElectric {
+  max-width: 1920px;
+  margin: 0 auto;
+  overflow: hidden;
+  
+  &-img-wrap {
+    position: relative;
+    min-height: 850px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 40%);
+  }
+
+  &-img {
+    z-index: -1;
+  }
+
+  &-description {
+    position: relative;
+    max-width: var(--max-width-tablet);
+    font-size: var(--fSize12);
+    padding: 1rem 0 4rem 0;
+    color: var(--white);
+    margin: 0 auto;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
+      height: 100%;
+      background-color: var(--black);
+      z-index: -1;
+    }
+  }
+
+  &-model {
+    position: relative;
+
+    &.white {
+      .ModelsListElectric-explore {
+        @extend %btn;
+        color: var(--black);
+        background-color: var(--white);
+        border: 1px solid var(--white);
+  
+        &:hover {
+          background-color: var(--gray_10);
+          border: 1px solid var(--gray_10);
+        }
+      }
+      
+      .ModelsListElectric-MSPR {
+        @extend %btn;
+        color: var(--white);
+        border: 1px solid var(--white);
+  
+        &:hover {
+          color: var(--gray_10);
+          border: 1px solid var(--gray_10);
+        }
+      }
+    }
+
+    &.black {
+      .ModelsListElectric-title,
+      .ModelsListElectric-price {
+        color: var(--black);
+      }
+
+      .ModelsListElectric-explore {
+        @extend %btn;
+        color: var(--white);
+        background-color: var(--black);
+        border: 1px solid var(--black);
+      
+        &:hover {
+          color: var(--gray_20);
+        }
+
+      }
+
+      .ModelsListElectric-MSPR {
+        @extend %btn;
+        color: var(--black);
+        border: 1px solid var(--black);
+      
+        &:hover {
+          color: var(--gray_20);
+          border: 1px solid var(--gray_20);
+        } 
+      }
+    }
+  }
+
+  &-text-container {
+    position: absolute;
+    top: 48px;
+    left: 45%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: var(--max-width-tablet);
+    padding-left: 1rem;
+    padding-right: 1rem;
+  } 
+
+  &-title,
+  &-price {
+    font-family: var(--Audi500);
+    font-weight: 100;
+    font-size: var(--fSize44);
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+  
+  &-price {
+    font-size: 1.25rem;
+    letter-spacing: -0.25px;
+  }
+
+  &-MSPR {
+    margin-left: 0.25rem;
+    font-family: var(--Audi400);
+
+  }
+
+  &-explore,
+  &-MSPR {
+    vertical-align: middle;
+  }
+
+  &-info {
+    &-container {
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+    }
+
+    &-description {
+      font-size: var(--fSize16);
+      text-align: center;
+      display: block;
+      padding-bottom: 8rem;
+      line-height: 1.5rem;
+      max-width: 1250px;
+      margin: 0 auto;
+    }
+
+    &-list {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    &-item {
+      text-align: center;
+      position: relative;
+      
+      &:nth-of-type(1) {
+        &::before {
+          content: '';
+          height: 250px;
+          width: 1px;
+          display: block;
+          position: absolute;
+          top: 0;
+          right: -35%;
+          background-color: var(--gray_10);
+        }
+      }
+
+      &:nth-of-type(2) {
+        &::before {
+          content: '';
+          height: 250px;
+          width: 1px;
+          display: block;
+          position: absolute;
+          top: 0;
+          right: -25%;
+          background-color: var(--gray_10);
+        }
+      }
+    }
+
+    &-title {
+      font-size: var(--fSize22);
+      font-family: var(--Audi400);
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      color: var(--gray_20);
+    }
+
+    &-count {
+      font-size: 4rem;
+      font-family: var(--AudiVF);
+      letter-spacing: -0.5px;
+      font-weight: 100;
+
+      &-container {
+        margin-bottom: 1.5rem;
+      }
+
+      &-text {
+        font-size: var(--fSize20);
+        color: var(--gray_20);
+      }
+    }
+
+    &-view {
+      text-decoration: underline;
+      font-size: var(--fSize14);
+      font-family: var(--Audi400);
+    }
+
+    &-text {
+      font-size: var(--fSize14);
+      font-family: var(--Audi400);
+      line-height: 1.5rem;
+      display: block;
+    }
+
+    &-explore {
+      display: block;
+      width: max-content;
+      margin: 5rem auto 0 auto;
+      color: var(--black);
+      border: 1px solid var(--black);
+  
+      &:hover {
+        opacity: 0.7;
+        color: var(--black);
+        border: 1px solid var(--black);
+      }
+    }
+
+    &-filled {
+      display: inline-block;
+      background-color: var(--black);
+      color: var(--white);
+      max-width: 250px;
+      padding: 1rem 2rem;
+      line-height: 1.3;
+      border: 1px solid var(--black);
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &-btns {
+      margin-top: 5rem;
+      text-align: center;
+    }
+
+    &-hollow {
+      display: inline-block;
+      color: var(--black);
+      max-width: 250px;
+      padding: 1rem 2rem;
+      line-height: 1.3;
+      border: 1px solid var(--black);
+      margin-left: 0.5rem;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &-gt-mspr {
+    display: block;
+    text-decoration: underline;
+    cursor: pointer;
+    color: var(--white);
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &-gt-etron {
+    margin-left: 0.5rem;
+  }
+}
