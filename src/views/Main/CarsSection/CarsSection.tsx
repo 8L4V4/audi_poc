@@ -167,11 +167,11 @@ export const CarsSection = () => {
               return (
                 <Link 
                   key={i} 
-                  href={data.link.href} 
+                  href={data?.link?.href || "#"} 
                   className="CarsSection-carousel-subitems-link" 
                 >
-                  <Image src={data?.img_sm?.url} alt={data.link.title} width={225} height={97} />
-                  <span className="CarsSection-carousel-subitems-link-text">{data.link.title}</span>
+                  <Image src={data?.img_sm?.url} alt={data?.link?.title} width={225} height={97} />
+                  <span className="CarsSection-carousel-subitems-link-text">{data?.link?.title}</span>
                 </Link>
               );
             })}
