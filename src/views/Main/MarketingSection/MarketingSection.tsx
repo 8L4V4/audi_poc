@@ -26,8 +26,6 @@ export const MarketingSection = () => {
 			})
 	}, [])
 
-	console.log("%c DATA", "color: orange; font-size: 16px; font-weight: bold; border-left: 5px solid orange", data);
-
 	return (
 		<div className="MarketingSection">
 			{
@@ -38,7 +36,7 @@ export const MarketingSection = () => {
 							<h3 className="MarketingSection-header">{block?.header}</h3>
 							<div className="MarketingSection-text" dangerouslySetInnerHTML={{__html: block?.text}}></div>
 							{ block?.buttons.map((btn) => (
-									!btn.link?.href
+									!btn?.link?.href
 										? <button className={`MarketingSection-btn ${btn.type}`} key={btn.title}> {btn.title} </button>
 										: <Link href={btn.link.href} className={`MarketingSection-btn ${btn.type}`} key={btn.title}>{btn.title}</Link>
 								))
