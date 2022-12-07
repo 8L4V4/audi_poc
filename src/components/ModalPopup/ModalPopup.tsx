@@ -63,7 +63,7 @@ export const ModalPopUp: FC<iModalPopUpProps> = ({
       >
         {showCloseBtn && (
           <button className="ModalPopUp-close" onClick={onClose}>
-            <Image src={closeIcon} layout="fill" alt="close icon" />
+            <Image src={closeIcon} alt="close icon" />
           </button>
         )}
 

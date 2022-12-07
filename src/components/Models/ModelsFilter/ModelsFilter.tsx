@@ -36,7 +36,7 @@ interface iModelsFilter {
   onRemoveItem: (item: string | ReactNode) => void;
   activeFilters: string[] | ReactNode[] | [];
   onRangeFilter: (v: string) => void;
-};
+}
 
 export const ModelsFilter: FC<iModelsFilter> = ({
   onClose, 

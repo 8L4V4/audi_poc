@@ -1,7 +1,8 @@
 .ModelsListElectric {
   max-width: 1920px;
+  margin: 0 auto;
   overflow: hidden;
-
+  
   &-img-wrap {
     position: relative;
     min-height: 850px;
@@ -36,6 +37,61 @@
 
   &-model {
     position: relative;
+
+    &.white {
+      .ModelsListElectric-explore {
+        @extend %btn;
+        color: var(--black);
+        background-color: var(--white);
+        border: 1px solid var(--white);
+  
+        &:hover {
+          background-color: var(--gray_10);
+          border: 1px solid var(--gray_10);
+        }
+      }
+      
+      .ModelsListElectric-MSPR {
+        @extend %btn;
+        color: var(--white);
+        border: 1px solid var(--white);
+  
+        &:hover {
+          color: var(--gray_10);
+          border: 1px solid var(--gray_10);
+        }
+      }
+    }
+
+    &.black {
+      .ModelsListElectric-title,
+      .ModelsListElectric-price {
+        color: var(--black);
+      }
+
+      .ModelsListElectric-explore {
+        @extend %btn;
+        color: var(--white);
+        background-color: var(--black);
+        border: 1px solid var(--black);
+      
+        &:hover {
+          color: var(--gray_20);
+        }
+
+      }
+
+      .ModelsListElectric-MSPR {
+        @extend %btn;
+        color: var(--black);
+        border: 1px solid var(--black);
+      
+        &:hover {
+          color: var(--gray_20);
+          border: 1px solid var(--gray_20);
+        } 
+      }
+    }
   }
 
   &-text-container {

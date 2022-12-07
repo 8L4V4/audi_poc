@@ -4,7 +4,7 @@ interface iModelsFilterBtn extends ButtonHTMLAttributes<HTMLButtonElement> {
   onRemove: (item: string | ReactNode) => void;
   onAdd: (item: string | ReactNode) => void;
   activeFilters: string[] | ReactNode[] | [];
-};
+}
 
 export const ModelsFilterBtn: FC<iModelsFilterBtn> = ({children, onClick, onRemove, onAdd, activeFilters, ...props}) => {
   const [active, setActive] = useState(false);

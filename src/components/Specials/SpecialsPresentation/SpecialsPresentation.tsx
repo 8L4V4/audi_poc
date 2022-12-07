@@ -7,7 +7,7 @@ interface iSpecialsPresentation extends Omit<iPresentationData, "image" | "class
   url: string;
   image: string;
   className: string;
-};
+}
 
 export const SpecialsPresentation: FC<iSpecialsPresentation> = ({
     title, 

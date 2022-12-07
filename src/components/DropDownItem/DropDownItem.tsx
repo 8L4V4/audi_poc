@@ -9,7 +9,7 @@ interface iDropDownItem {
     title: string;
     url: string;
   }
-};
+}
 
 export const DropDownItem: FC<iDropDownItem> = ({title, content, link}) => {
   const [showDropdown, setShowDropdown] = useState(false);

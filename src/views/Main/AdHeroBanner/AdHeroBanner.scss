@@ -1,0 +1,74 @@
+.AdHeroBanner {
+	padding: 3.5em 4%;
+	min-height: 580px;
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	&-main-header,
+	&-sub-header {
+		font-family: var(--Audi600);
+		line-height: 1.32;
+		color: var(--white);
+	}
+
+	&-main-header {
+		font-size: 4.2rem;
+	}
+
+	&-sub-header {
+		font-size: 3rem;
+	}
+
+	&-radio {
+		padding: 3.5rem 0;
+
+		&-label {
+			position: relative;
+			padding-left: 2em;
+			color: var(--white);
+			margin-right: 2em;
+			cursor: pointer;
+
+			&:before,
+			&:after {
+				content: "";
+				position: absolute;
+				left: 0.75em;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				border-radius: 50%;
+			}
+
+			&:before {
+				background-color: var(--white);
+				width: 0.45em;
+				height: 0.45em;
+			}
+			&:after {
+				width: 1.5em;
+				height: 1.5em;
+				border: 1px solid var(--white);
+			}
+		}
+
+		&-input {
+			position: fixed;
+			left: -100%;
+
+		}
+
+		&-input:checked + &-label:before,
+		&-input:focus + &-label:before{
+			width: 0.85em;
+			height: 0.85em;
+		}
+	}
+
+	&-btn {
+		max-width: 300px;
+		text-align: center;
+	}
+}

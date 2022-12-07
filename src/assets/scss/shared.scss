@@ -6,24 +6,48 @@
 
 .btn_hollow {
   @extend %btn;
-  color: var(--white);
-  border: 1px solid var(--white);
-
-  &:hover {
-    color: var(--gray_10);
-    border: 1px solid var(--gray_10);
+  &.white {
+    color: var(--white);
+    border: 1px solid var(--white);
+  
+    &:hover {
+      color: var(--gray_10);
+      border: 1px solid var(--gray_10);
+    }
+  }
+  &.black {
+    color: var(--black);
+    border: 1px solid var(--black);
+  
+    &:hover {
+      color: var(--gray_20);
+      border: 1px solid var(--gray_20);
+    }    
   }
 }
 
 .btn_filled {
   @extend %btn;
-  color: var(--black);
-  background-color: var(--white);
-  border: 1px solid var(--white);
 
-  &:hover {
-    background-color: var(--gray_10);
-    border: 1px solid var(--gray_10);
+  &.white {
+    color: var(--black);
+    background-color: var(--white);
+    border: 1px solid var(--white);
+  
+    &:hover {
+      background-color: var(--gray_10);
+      border: 1px solid var(--gray_10);
+    }
+  }
+
+  &.black {
+    color: var(--white);
+    background-color: var(--black);
+    border: 1px solid var(--black);
+  
+    &:hover {
+      color: var(--gray_20);
+    }
   }
 }
 

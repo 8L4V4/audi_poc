@@ -8,7 +8,7 @@ interface iModal {
   fullScreen?: boolean;
   children?: ReactNode;
   className?: string;
-};
+}
 
 export const Modal: FC<iModal> = ({show, onClose, children, className, fullScreen = false}) => {
   const ref: MutableRefObject<HTMLDivElement | null> = useRef(null);

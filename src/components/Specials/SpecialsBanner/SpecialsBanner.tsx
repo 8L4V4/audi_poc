@@ -39,7 +39,7 @@ export const SpecialsBanner: FC = () => {
   const onZipCodeHandler = (value: string) => {
     if(value === "") {
       setBannerErrors(false);
-    };
+    }
 
     setZipCode(value);
   };

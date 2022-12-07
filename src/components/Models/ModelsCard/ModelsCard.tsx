@@ -7,7 +7,7 @@ interface iModelsCard {
   price: number;
   url: string;
   img: string;
-};
+}
 
 export const ModelsCard: FC<iModelsCard> = ({title, bold_title, price, url, img}) => {
 

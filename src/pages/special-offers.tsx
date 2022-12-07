@@ -16,7 +16,7 @@ export interface iPresentationData {
   classname: string;
   btn_title: string;
   modal_content: string;
-};
+}
 
 const Specials: NextPage = () => {
   const {call, data, isLoading} = useHttp();

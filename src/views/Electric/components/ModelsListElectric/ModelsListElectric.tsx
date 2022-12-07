@@ -6,20 +6,21 @@ import Link from "next/link";
 interface iModelsListElectric {
   data: iCar[];
   setCarInfo: Dispatch<SetStateAction<iCarInfo | undefined>>;
+  className?: string;
 };
 
-export const ModelsListElectric: FC<iModelsListElectric> = ({ data, setCarInfo }) => {
+export const ModelsListElectric: FC<iModelsListElectric> = ({ data, setCarInfo, className }) => {
   const openMsprDetails = (car: iCar) => {
     setCarInfo({
       description: car?.mspr,
       description_title: "MSRP Disclaimer",
     });
   };
-
+  
   return (
     <ul className="ModelsListElectric">
-      {data?.map((car) => (
-        <li className="ModelsListElectric-model" id={car?.slug} key={car?.name}>
+      {data?.map((car, idx) => (
+        <li className={`ModelsListElectric-model ${(idx === 4) ? "black" : "white"} ${className || ""}`} id={car?.slug} key={car?.name}>
           <div className="ModelsListElectric-img-wrap">
             <Image
               src={car?.image?.url}
@@ -47,10 +48,10 @@ export const ModelsListElectric: FC<iModelsListElectric> = ({ data, setCarInfo }
 
             {car?.type === "GT" && (
               <>
-                <Link href="/" className="ModelsListElectric-gt btn_filled">
+                <Link href="/" className="ModelsListElectric-gt btn_filled white">
                   Explore the e-tron GT
                 </Link>
-                <Link href="/" className="ModelsListElectric-gt-etron btn_hollow">
+                <Link href="/" className="ModelsListElectric-gt-etron btn_hollow white">
                   Explore the e-tron GT
                 </Link>
               </>

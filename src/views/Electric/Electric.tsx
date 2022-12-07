@@ -14,6 +14,7 @@ import Link from "next/link";
 import { ModelsListElectric } from "./components/ModelsListElectric/ModelsListElectric";
 import { iCarInfo, iElectricEntry } from "./interfaces";
 import { ArrowRightIcon } from "components/Icon/ArrowRightIcon";
+import { Icon } from "components/Icon/Icon";
 
 export const Electric: FC = () => {
   const { call, data, isError, isLoading } = useHttp();
@@ -88,21 +89,10 @@ export const Electric: FC = () => {
 
       {isLoading && <Loader />}
 
-      <div className="Electric-hero-banner">
-        <div className="Electric-image-wrap">
-          {entry?.hero_background?.url && (
-            <Image
-              src={entry?.hero_background?.url}
-              fill
-              objectFit="cover"
-              alt="hero banner logo"
-              className="Electric-image"
-            />
-          )}
-        </div>
+      <div className="Electric-hero-banner" style={{backgroundImage: `url("${entry?.hero_background?.url}")`}}>
         <h1 className="Electric-title">Electric Models</h1>
-        <p className="Electric-description">A new generation of Audi.</p>
       </div>
+      <p className="Electric-description">A new generation of Audi.</p> 
 
       <nav className="Electric-cars-nav">
         <div className="Electric-cars">
@@ -142,7 +132,6 @@ export const Electric: FC = () => {
               src={entry.gt_background?.url}
               alt="audi gt in box image"
               fill
-              objectFit="cover"
               className="Electric-gt"
               style={{ opacity }}
             />
@@ -152,7 +141,6 @@ export const Electric: FC = () => {
               src={entry?.gt_additional_background?.url}
               alt="audi gt on street image"
               fill
-              objectFit="cover"
               className="Electric-gt-additional"
             />
           )}
@@ -170,20 +158,10 @@ export const Electric: FC = () => {
           quattro, this lineup is poised to deliver a driving experience unlike
           any other.
         </p>
-        <ModelsListElectric data={hybridCars} setCarInfo={setInfo} />
+        <ModelsListElectric data={hybridCars} setCarInfo={setInfo} className="black" />
       </section>
 
-      <section className="Electric-footer">
-        {entry?.footer_background?.url && (
-          <Image
-            src={entry.footer_background.url}
-            alt="audi gt image"
-            fill
-            objectFit="cover"
-            className="Electric-footer-image"
-            loading="lazy"
-          />
-        )}
+      <section className="Electric-footer" style={{backgroundImage: `url("${entry?.footer_background?.url}")`}}>
         <div className="Electric-footer-content">
           <h3 className="Electric-footer-title">Explore electric driving.</h3>
           <p className="Electric-footer-text">
@@ -192,7 +170,7 @@ export const Electric: FC = () => {
           </p>
           <Link href="/" className="Electric-footer-link">
             <span>e-tron® Technology</span>
-            <ArrowRightIcon />
+            <Icon name="arrow-right" />
           </Link>
         </div>
       </section>
