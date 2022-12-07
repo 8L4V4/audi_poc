@@ -21,16 +21,7 @@ export const ModelsListElectric: FC<iModelsListElectric> = ({ data, setCarInfo, 
     <ul className="ModelsListElectric">
       {data?.map((car, idx) => (
         <li className={`ModelsListElectric-model ${(idx === 4) ? "black" : "white"} ${className || ""}`} id={car?.slug} key={car?.name}>
-          <div className="ModelsListElectric-img-wrap">
-            <Image
-              src={car?.image?.url}
-              alt={`${car?.name}-logo`}
-              fill
-              objectFit="cover"
-              className="ModelsListElectric-img"
-              loading="lazy"
-            />
-          </div>
+          <div className="ModelsListElectric-img" style={{backgroundImage: `url("${car?.image?.url}")`}}></div>
 
           <div className="ModelsListElectric-text-container">
             <h2 className="ModelsListElectric-title">

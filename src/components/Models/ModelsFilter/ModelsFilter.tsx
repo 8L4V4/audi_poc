@@ -1,4 +1,6 @@
-import {FC, ReactNode, useState } from "react";
+import { eventBus } from "helpers/EventBus/EventBus";
+import { showFilterCount } from "helpers/EventBus/model";
+import {FC, ReactNode, useEffect, useState } from "react";
 import { ModelsFilterBar } from "./ModelsFilterBar/ModelsFilterBar";
 import { ModelsFilterBtn } from "./ModelsFilterBtn/ModelsFilterBtn";
 import { ModelsFilterRange } from "./ModelsFilterRange/ModelsFilterRange";
@@ -46,6 +48,11 @@ export const ModelsFilter: FC<iModelsFilter> = ({
   onRangeFilter
 }) => {
   const [price, setPrice] = useState("25,000");
+  const [resultCount, setResultCount] = useState(0);
+
+  useEffect(() => {
+    eventBus.on("toggleNotificationSidebar", ({detail}: any) => setResultCount(detail.count));
+  }, [])
 
   return (
     <div className="ModelsFilter">
@@ -100,7 +107,7 @@ export const ModelsFilter: FC<iModelsFilter> = ({
 
         <div className="ModelsFilter-results">
           <button className="ModelsFilter-results-btn" onClick={onClose}>
-            <span className="ModelsFilter-results-btn-text">46 Results Displayed</span>
+            <span className="ModelsFilter-results-btn-text">{resultCount ? resultCount + " Results Displayed" : "Choose Filter"}</span>
           </button>
         </div>
     </div>
