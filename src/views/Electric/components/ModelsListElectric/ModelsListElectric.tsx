@@ -1,14 +1,14 @@
 import { Dispatch, FC, SetStateAction } from "react";
-import Image from "next/image";
 import { iCar, iCarInfo } from "views/Electric/interfaces";
+import Image from "next/image";
 import Link from "next/link";
 
-interface iModelsList {
+interface iModelsListElectric {
   data: iCar[];
   setCarInfo: Dispatch<SetStateAction<iCarInfo | undefined>>;
-}
+};
 
-export const ModelsList: FC<iModelsList> = ({ data, setCarInfo }) => {
+export const ModelsListElectric: FC<iModelsListElectric> = ({ data, setCarInfo }) => {
   const openMsprDetails = (car: iCar) => {
     setCarInfo({
       description: car?.mspr,
@@ -17,27 +17,28 @@ export const ModelsList: FC<iModelsList> = ({ data, setCarInfo }) => {
   };
 
   return (
-    <ul className="ModelsList">
+    <ul className="ModelsListElectric">
       {data?.map((car) => (
-        <li className="ModelsList-model" id={car?.slug} key={car?.name}>
-          <div className="ModelsList-img-wrap">
+        <li className="ModelsListElectric-model" id={car?.slug} key={car?.name}>
+          <div className="ModelsListElectric-img-wrap">
             <Image
               src={car?.image?.url}
               alt={`${car?.name}-logo`}
               fill
               objectFit="cover"
-              className="ModelsList-img"
+              className="ModelsListElectric-img"
               loading="lazy"
             />
           </div>
-          <div className="ModelsList-text-container">
-            <h2 className="ModelsList-title">
+
+          <div className="ModelsListElectric-text-container">
+            <h2 className="ModelsListElectric-title">
               {car?.year} {car?.name}
             </h2>
-            <p className="ModelsList-price">Starting at ${car?.price}.*</p>
+            <p className="ModelsListElectric-price">Starting at ${car?.price}.*</p>
             {car?.type === "GT" && (
               <button
-                className="ModelsList-gt-mspr"
+                className="ModelsListElectric-gt-mspr"
                 onClick={() => openMsprDetails(car)}
               >
                 View MSRP info
@@ -46,10 +47,10 @@ export const ModelsList: FC<iModelsList> = ({ data, setCarInfo }) => {
 
             {car?.type === "GT" && (
               <>
-                <Link href="/" className="ModelsList-gt btn_filled">
+                <Link href="/" className="ModelsListElectric-gt btn_filled">
                   Explore the e-tron GT
                 </Link>
-                <Link href="/" className="ModelsList-gt-etron btn_hollow">
+                <Link href="/" className="ModelsListElectric-gt-etron btn_hollow">
                   Explore the e-tron GT
                 </Link>
               </>
@@ -57,11 +58,11 @@ export const ModelsList: FC<iModelsList> = ({ data, setCarInfo }) => {
 
             {car?.type !== "GT" && (
               <>
-                <Link href="/" className="btn_filled ModelsList-explore">
+                <Link href="/" className="btn_filled ModelsListElectric-explore">
                   Explore the {car?.name}
                 </Link>
                 <button
-                  className="btn_hollow ModelsList-MSPR"
+                  className="btn_hollow ModelsListElectric-MSPR"
                   onClick={() => openMsprDetails(car)}
                 >
                   *View MSRP info
@@ -69,29 +70,30 @@ export const ModelsList: FC<iModelsList> = ({ data, setCarInfo }) => {
               </>
             )}
           </div>
+
           {car?.image_description && (
-            <p className="ModelsList-description">{car.image_description}</p>
+            <p className="ModelsListElectric-description">{car.image_description}</p>
           )}
-          <div className="ModelsList-info-container">
-            <p className="ModelsList-info-description">{car?.description}</p>
-            <ul className="ModelsList-info-list">
-              {car?.info_list?.map((item, i) => (
+          
+          <div className="ModelsListElectric-info-container">
+            <p className="ModelsListElectric-info-description">{car?.description}</p>
+            <ul className="ModelsListElectric-info-list">
+              {car?.info_list?.map(item => (
                 <li
-                  className={`ModelsList-info-item ${
-                    i === 1 ? "withBorder" : ""
-                  }`}
+                  className="ModelsListElectric-info-item"
                   key={item?.title}
                 >
-                  <h3 className="ModelsList-info-title">{item?.title}</h3>
-                  <p>
-                    <span className="ModelsList-info-count">{item?.count}</span>{" "}
-                    <span>{item?.unit}</span>
+                  <h3 className="ModelsListElectric-info-title">{item?.title}</h3>
+                  
+                  <p className="ModelsListElectric-info-count-container">
+                    <span className="ModelsListElectric-info-count">{item?.count}</span>
+                    &nbsp;<span className="ModelsListElectric-info-count-text">{item?.unit}</span>
                   </p>
-                  {item?.text && (
-                    <p className="ModelsList-info-text">{item.text}</p>
-                  )}
+
+                  {item?.text && <p className="ModelsListElectric-info-text">{item.text}</p>}
+
                   <button
-                    className="ModelsList-info-view"
+                    className="ModelsListElectric-info-view"
                     onClick={() =>
                       setCarInfo({
                         description: item?.description,
@@ -105,16 +107,16 @@ export const ModelsList: FC<iModelsList> = ({ data, setCarInfo }) => {
               ))}
             </ul>
             {car?.type !== "GT" && (
-              <Link href="/" className="btn_hollow ModelsList-info-explore">
+              <Link href="/" className="btn_hollow ModelsListElectric-info-explore">
                 Explore the {car?.name}
               </Link>
             )}
             {car?.type === "GT" && (
-              <div className="ModelsList-info-btns">
-                <Link href="/" className="ModelsList-info-filled">
+              <div className="ModelsListElectric-info-btns">
+                <Link href="/" className="ModelsListElectric-info-filled">
                   Explore the Audi e‑tron® GT
                 </Link>
-                <Link href="/" className="ModelsList-info-hollow">
+                <Link href="/" className="ModelsListElectric-info-hollow">
                   Explore the Audi RS e‑tron® GT
                 </Link>
               </div>

@@ -11,7 +11,7 @@ import { ModalPopUp } from "components/ModalPopup/ModalPopup";
 import { useHttp } from "hooks/useHttp";
 import Image from "next/image";
 import Link from "next/link";
-import { ModelsList } from "./components/ModelsList/ModelsList";
+import { ModelsListElectric } from "./components/ModelsListElectric/ModelsListElectric";
 import { iCarInfo, iElectricEntry } from "./interfaces";
 import { ArrowRightIcon } from "components/Icon/ArrowRightIcon";
 
@@ -85,7 +85,9 @@ export const Electric: FC = () => {
           </div>
         </ModalPopUp>
       )}
+
       {isLoading && <Loader />}
+
       <div className="Electric-hero-banner">
         <div className="Electric-image-wrap">
           {entry?.hero_background?.url && (
@@ -101,6 +103,7 @@ export const Electric: FC = () => {
         <h1 className="Electric-title">Electric Models</h1>
         <p className="Electric-description">A new generation of Audi.</p>
       </div>
+
       <nav className="Electric-cars-nav">
         <div className="Electric-cars">
           <Link href="/" className="Electric-cars-overview">
@@ -117,6 +120,7 @@ export const Electric: FC = () => {
           ))}
         </div>
       </nav>
+
       <div className="Electric-banner">
         <h2 className="Electric-banner-title">
           All-Electric: Audi e-tron models.
@@ -128,7 +132,9 @@ export const Electric: FC = () => {
           drive — it electrifies it.
         </p>
       </div>
-      <ModelsList data={cars} setCarInfo={setInfo} />
+
+      <ModelsListElectric data={cars} setCarInfo={setInfo} />
+
       <div>
         <div className="Electric-gt-container" ref={gtContainer}>
           {entry?.gt_background && (
@@ -153,6 +159,7 @@ export const Electric: FC = () => {
         </div>
         <div style={{ height: "200px" }}></div>
       </div>
+
       <section className="Electric-hybrid">
         <h3 className="Electric-hybrid-title">
           Plug-In Hybrid: Audi TFSI e models.
@@ -163,8 +170,9 @@ export const Electric: FC = () => {
           quattro, this lineup is poised to deliver a driving experience unlike
           any other.
         </p>
-        <ModelsList data={hybridCars} setCarInfo={setInfo} />
+        <ModelsListElectric data={hybridCars} setCarInfo={setInfo} />
       </section>
+
       <section className="Electric-footer">
         {entry?.footer_background?.url && (
           <Image
