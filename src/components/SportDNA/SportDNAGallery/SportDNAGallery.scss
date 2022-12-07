@@ -1,0 +1,70 @@
+.SportDNAGallery {
+  max-width: 1920px;
+  margin: 0 auto;
+  overflow: hidden;
+
+  &:nth-child(odd) {
+    .SportDNAGallery-container-wrap {
+      align-items: flex-end;
+    }
+
+    .SportDNAGallery-subtitle,
+    .SportDNAGallery-text,
+    .SportDNAGallery-title {
+      text-align: end;
+    }
+  }
+
+  &-container {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 6.5rem 0 4.5rem 0;
+
+    &-wrap {
+      max-width: 1450px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  &-title {
+    margin-bottom: 1.125rem;
+    font-family: var(--Audi500);
+    font-size: var(--fSize42);
+    max-width: 1100px;
+    line-height: 4rem;
+  }
+
+  &-text {
+    color: var(--gray_0);
+    max-width: 1100px;
+    line-height: 1.5rem;
+    font-weight: 500;
+    font-family: var(--Audi400);
+    letter-spacing: -0.15px;
+  }
+
+  &-subtitle {
+    margin-top: 1.125rem;
+    color: var(--gray_0);
+    font-size: var(--fSize14);
+    letter-spacing: -0.15px;
+    display: block;
+  }
+
+  &-player {
+    height: 1080px;
+    margin-bottom: 300px !important;
+
+    &::before {
+      all: unset !important;
+    }
+
+    .Icon {
+      fill: var(--white);
+    }
+  }
+}

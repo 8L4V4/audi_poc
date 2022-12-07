@@ -1,49 +1,59 @@
+import React, {
+  FC,
+  MutableRefObject,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { MainPageAPI } from "api";
 import { Loader } from "components/Loader/Loader";
+import { ModalPopUp } from "components/ModalPopup/ModalPopup";
 import { useHttp } from "hooks/useHttp";
 import Image from "next/image";
 import Link from "next/link";
-import { FC, useEffect } from "react";
 import { ModelsList } from "./components/ModelsList/ModelsList";
-
-export interface iCar {
-  battery: { [k: string]: any };
-  charging: { [k: string]: any };
-  epa: { [k: string]: any };
-  hybrid: boolean;
-  image_description: string;
-  links: { title: string; href: string }[];
-  name: string;
-  price: string;
-  year: string;
-  price_link: { title: string; href: string }[];
-  slug: string;
-  image: { url: string };
-  alt_image: { url: string };
-  description: string;
-  info_list: iInfoItem[];
-}
-
-interface iInfoItem {
-  title: string;
-  count: number;
-  unit: string;
-  text: string;
-  link_title: string;
-  description: string;
-  description_title: string;
-}
-
-interface iElectricEntry {
-  footer_background: { url: string };
-  hero_background: { url: string };
-  car_slugs: { slug: string }[];
-  car_list: iCar[];
-}
+import { iCarInfo, iElectricEntry } from "./interfaces";
+import { ArrowRightIcon } from "components/Icon/ArrowRightIcon";
 
 export const Electric: FC = () => {
   const { call, data, isError, isLoading } = useHttp();
   const entry = data?.data?.entry as iElectricEntry;
+  const gtContainer: MutableRefObject<HTMLDivElement | null> = useRef(null);
+  const cars = entry?.car_list?.filter((car) => car.type !== "HYBRID");
+  const hybridCars = entry?.car_list?.filter((car) => car.type === "HYBRID");
+  const [info, setInfo] = useState<iCarInfo>();
+  const [opacity, setOpacity] = useState(1);
+
+  useEffect(() => {
+    window.addEventListener("scroll", (e) => {
+      if (!gtContainer?.current) return e;
+      const containerPosition = gtContainer.current.getBoundingClientRect().top;
+
+      changeImageOpacity(containerPosition <= 0 ? "bottom" : "top");
+    });
+
+    return () => window?.removeEventListener("scroll", () => null);
+  }, []);
+
+  const scrollToELement = (id: string) => {
+    const el = document?.getElementById(id);
+    el && el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  function manageOpacityLevel(newOpacity: number) {
+    const min = 0;
+    const max = 1;
+    if (newOpacity <= min) return min;
+    if (newOpacity >= max) return max;
+
+    return newOpacity;
+  }
+
+  function changeImageOpacity(direction: "top" | "bottom") {
+    direction === "top"
+      ? setOpacity((pv) => manageOpacityLevel(pv + 0.1))
+      : setOpacity((pv) => manageOpacityLevel(pv - 0.1));
+  }
 
   useEffect(() => {
     call(MainPageAPI.getElectricCarsData());
@@ -60,6 +70,21 @@ export const Electric: FC = () => {
 
   return (
     <div className="Electric">
+      {!!info && (
+        <ModalPopUp
+          show={!!info}
+          onClose={() => setInfo(undefined)}
+          showCloseBtn
+          contentClassName="Electric-popup"
+        >
+          <div className="Electric-popup-content">
+            {info?.description_title && (
+              <h3 className="Electric-popup-title">{info.description_title}</h3>
+            )}
+            <p className="Electric-popup-description">{info?.description}</p>
+          </div>
+        </ModalPopUp>
+      )}
       {isLoading && <Loader />}
       <div className="Electric-hero-banner">
         <div className="Electric-image-wrap">
@@ -82,7 +107,11 @@ export const Electric: FC = () => {
             Overview
           </Link>
           {entry?.car_slugs?.map(({ slug }) => (
-            <button id={slug} className="Electric-cars-item" key={slug}>
+            <button
+              className="Electric-cars-item"
+              key={slug}
+              onClick={() => scrollToELement(slug)}
+            >
               {slug}
             </button>
           ))}
@@ -99,7 +128,66 @@ export const Electric: FC = () => {
           drive — it electrifies it.
         </p>
       </div>
-      <ModelsList data={entry?.car_list} />
+      <ModelsList data={cars} setCarInfo={setInfo} />
+      <div>
+        <div className="Electric-gt-container" ref={gtContainer}>
+          {entry?.gt_background && (
+            <Image
+              src={entry.gt_background?.url}
+              alt="audi gt in box image"
+              fill
+              objectFit="cover"
+              className="Electric-gt"
+              style={{ opacity }}
+            />
+          )}
+          {entry?.gt_additional_background && (
+            <Image
+              src={entry?.gt_additional_background?.url}
+              alt="audi gt on street image"
+              fill
+              objectFit="cover"
+              className="Electric-gt-additional"
+            />
+          )}
+        </div>
+        <div style={{ height: "200px" }}></div>
+      </div>
+      <section className="Electric-hybrid">
+        <h3 className="Electric-hybrid-title">
+          Plug-In Hybrid: Audi TFSI e models.
+        </h3>
+        <p className="Electric-hybrid-text">
+          Take your first step towards electric driving in an Audi TFSI e model.
+          By combining an electric motor with a traditional engine and legendary
+          quattro, this lineup is poised to deliver a driving experience unlike
+          any other.
+        </p>
+        <ModelsList data={hybridCars} setCarInfo={setInfo} />
+      </section>
+      <section className="Electric-footer">
+        {entry?.footer_background?.url && (
+          <Image
+            src={entry.footer_background.url}
+            alt="audi gt image"
+            fill
+            objectFit="cover"
+            className="Electric-footer-image"
+            loading="lazy"
+          />
+        )}
+        <div className="Electric-footer-content">
+          <h3 className="Electric-footer-title">Explore electric driving.</h3>
+          <p className="Electric-footer-text">
+            You’ve only scratched the surface of electric driving. Dive deeper
+            and learn how exciting driving an electrified Audi e-tron® can be.
+          </p>
+          <Link href="/" className="Electric-footer-link">
+            <span>e-tron® Technology</span>
+            <ArrowRightIcon />
+          </Link>
+        </div>
+      </section>
     </div>
   );
 };

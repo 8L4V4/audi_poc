@@ -1,0 +1,15 @@
+.MotorSportHistory {
+  min-height: 100vh;
+
+  &-info {
+    .PageInfoSection-content {
+      max-width: 1440px;
+    }
+  }
+
+  &-prom {
+    .PagePromotionSection-title {
+      max-width: fit-content;
+    }
+  }
+}

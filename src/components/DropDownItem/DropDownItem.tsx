@@ -2,7 +2,7 @@ import { Icon } from "components/Icon/Icon";
 import { FC, MutableRefObject, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
-interface iSpecialsProgramsItem {
+interface iDropDownItem {
   title: string;
   content: string;
   link: {
@@ -11,7 +11,7 @@ interface iSpecialsProgramsItem {
   }
 }
 
-export const SpecialsProgramsItem: FC<iSpecialsProgramsItem> = ({title, content, link}) => {
+export const DropDownItem: FC<iDropDownItem> = ({title, content, link}) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const ref: MutableRefObject<null | HTMLDivElement> = useRef(null);
 
@@ -26,9 +26,9 @@ export const SpecialsProgramsItem: FC<iSpecialsProgramsItem> = ({title, content,
   },[showDropdown])
 
   return (
-  <div className="SpecialsProgramsItem">
+  <div className="iDropDownItem">
     <button 
-      className={`SpecialsProgramsItem-btn ${showDropdown ? "active" : ""}`} 
+      className={`iDropDownItem-btn ${showDropdown ? "active" : ""}`} 
       onClick={() => setShowDropdown(pv => !pv)}
     >
       <span>{title}</span>
@@ -36,9 +36,9 @@ export const SpecialsProgramsItem: FC<iSpecialsProgramsItem> = ({title, content,
     </button>
 
     {showDropdown && (
-      <div className="SpecialsProgramsItem-content" ref={ref}>
-        <p className="SpecialsProgramsItem-content-text">{content}</p>
-        <Link href={link.url} className="SpecialsProgramsItem-content-link">
+      <div className="iDropDownItem-content" ref={ref}>
+        <p className="iDropDownItem-content-text">{content}</p>
+        <Link href={link.url} className="iDropDownItem-content-link">
           <span>{link.title}</span>
           <Icon name="arrow-right" />
         </Link>

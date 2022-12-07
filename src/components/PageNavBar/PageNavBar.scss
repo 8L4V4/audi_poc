@@ -1,0 +1,26 @@
+.PageNavBar {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0.75rem 14rem;
+  display: flex;
+  align-items: center;
+  background-color: var(--white);
+  box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  
+  &-link {
+    color: var(--black);
+    padding-right: 4.5rem;
+    font-size: var(--fSize14);
+    font-family: var(--Audi400);
+    font-weight: 700;
+    letter-spacing: -0.35px;
+    
+    &.active {
+      text-decoration: underline;
+    }
+  }
+}

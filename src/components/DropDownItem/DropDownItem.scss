@@ -1,9 +1,9 @@
-.SpecialsProgramsItem {
+.iDropDownItem {
   width: 100%;
   text-align: start;
 
   &:first-of-type {
-    .SpecialsProgramsItem-btn {
+    .iDropDownItem-btn {
       border-top: 1px solid var(--gray_10);
     }
   }
@@ -21,6 +21,7 @@
 
     .Icon {
       transition: transform 0.5s ease;
+      stroke: var(--black);
     }
 
     &.active {
@@ -57,6 +58,7 @@
       .Icon {
         transform: translateY(3px);
         margin-left: 0.35rem;
+        stroke: var(--black);
       }
     }
   }

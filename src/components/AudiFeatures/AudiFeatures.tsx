@@ -31,8 +31,8 @@ export const AudiFeatures: NextPage = () => {
 
   return (
     <Link className="AudiFeatures" href="#">
-      {featureList?.map(feature => (
-        <div className="AudiFeatures-item" style={{backgroundImage: `url(${feature.image.url})`}}>
+      {featureList?.map((feature, i) => (
+        <div className="AudiFeatures-item" style={{backgroundImage: `url(${feature.image.url})`}} key={i}>
           {/*<Image src={feature.image.url} className="AudiFeatures-item-img" alt={feature.name.text}/>*/}
           <span className="AudiFeatures-item-title">
             {feature.name.image &&

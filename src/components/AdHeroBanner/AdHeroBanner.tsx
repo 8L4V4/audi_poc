@@ -3,6 +3,7 @@ import { useApi } from 'hooks/useApi';
 import Link from 'next/link';
 import React, {useState, useEffect} from 'react';
 import { iButtonField, iPictureField } from 'types/fields';
+import {useHttp} from "../../hooks/useHttp";
 
 interface iAdHeroBanner {
 	heading_1: string;

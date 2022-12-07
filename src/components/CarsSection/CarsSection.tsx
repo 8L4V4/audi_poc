@@ -94,6 +94,8 @@ export const CarsSection = () => {
     timeout.current = setTimeout( () => setScrolledTo(e.target.scrollLeft), 200 );
   }
 
+  console.log("%c tabs", "color: orange; font-size: 16px; font-weight: bold; border-left: 5px solid orange", tabsData);
+
   return (
     <div className="CarsSection">
       <div className="CarsSection-tabs">
@@ -170,7 +172,7 @@ export const CarsSection = () => {
                   href={data.link.href} 
                   className="CarsSection-carousel-subitems-link" 
                 >
-                  <Image src={data.img_sm.url} alt={data.link.title} width={225} height={97} />
+                  <Image src={data?.img_sm?.url} alt={data.link.title} width={225} height={97} />
                   <span className="CarsSection-carousel-subitems-link-text">{data.link.title}</span>
                 </Link>
               );
