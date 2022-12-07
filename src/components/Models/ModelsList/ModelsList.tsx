@@ -65,15 +65,23 @@ export const ModelsList: FC<iModelsList> = ({filters}) => {
       const filterString = (filter: string | ReactNode) => typeof filter === "string" ? filter : "e-tron";
       const priceFilter = Number(filters.range.replace(",", ""));
 
-      const filtredCategory = !!filters.range  ? category.list.filter(listItem => listItem.price >= priceFilter) : category.list;
+      const filtredCategory = !!filters.range ? category.list.filter(listItem => listItem.price >= priceFilter) : category.list;
       
       filtredCategory.map(listItem => {
-        filters.active.forEach(filter => {
-          if(listItem.title.includes(filterString(filter)) || listItem.bold_title.includes(filterString(filter))){
+        if(!!filters.active.length){
+          filters.active.forEach(filter => {
+            if(listItem.title.includes(filterString(filter)) || listItem.bold_title.includes(filterString(filter))){
+              newList.push(listItem);
+            };
+            return;
+          });
+        }
+        
+        if(!filters.active.length && !!filters.range){
+          if(listItem.price >= priceFilter){
             newList.push(listItem);
-          };
-          return;
-        });
+          }
+        }
       });
       
       return {
