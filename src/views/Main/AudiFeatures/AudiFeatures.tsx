@@ -8,6 +8,7 @@ import Link from "next/link";
 
 interface iAudiFeature {
   image: iPictureField,
+  url_link: string,
   name: {
     text: string,
     image: iPictureField
@@ -29,17 +30,22 @@ export const AudiFeatures: NextPage = () => {
   }, [])
 
   return (
-    <Link className="AudiFeatures" href="src/views/Main/AudiFeatures#">
+    <div className="AudiFeatures">
       {featureList?.map((feature, i) => (
-        <div className="AudiFeatures-item" style={{backgroundImage: `url(${feature.image?.url})`}} key={i}>
-          {/*<Image src={feature.image.url} className="AudiFeatures-item-img" alt={feature.name.text}/>*/}
+        <Link href={feature.url_link} className="AudiFeatures-item" style={{backgroundImage: `url(${feature.image?.url})`}} key={i}>
           <span className="AudiFeatures-item-title">
-            {feature.name.image &&
-              <Image src={feature.name.image?.url} className="AudiFeatures-item-title-img" alt={feature.name.text} width={210} height={26}/>}
+            { feature.name.image &&
+              <Image src={feature.name.image?.url}
+                     className="AudiFeatures-item-title-img"
+                     alt={feature.name.text}
+                     width={210}
+                     height={26}
+              />
+            }
             {feature.name.text || ""}
           </span>
-        </div>
+        </Link>
       ))}
-    </Link>
+    </div>
   );
 };

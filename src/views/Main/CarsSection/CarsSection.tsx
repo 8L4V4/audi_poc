@@ -17,6 +17,7 @@ interface iTabData {
 interface iSlideData {
   order: number,
   slide_data: Array<iSlideItemData>,
+  scroll: number,
   slide_sub_item: Array<{
     order: number,
     sub_item_data: Array<iSlideItemData>
@@ -45,7 +46,12 @@ export const CarsSection = () => {
   useEffect(() => {
     apiCall(MainPageAPI.getModels()).then(({ data: { entry: { tabs } } }) => {
       setTabsData(tabs);
-      Array.isArray(tabs) && setActiveTab(tabs[0]);
+      if(Array.isArray(tabs)) setActiveTab(tabs[0]);
+      if(carouselRef.current) {
+        const scrollValue = (tabs[0].scroll * 0.01) * carouselRef.current.offsetWidth;
+        setScrolledTo(scrollValue);
+        carouselRef.current.scrollLeft = scrollValue;
+      }
     });
   }, []);
 
